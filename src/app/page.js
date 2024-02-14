@@ -1,13 +1,9 @@
-import NavBar from "@/components/NavBar";
-import React from "react";
+import React from 'react'
 
-const Page = () => {
+const page = () => {
   return (
-    <div>
-      <NavBar />
-      Home Page
-    </div>
-  );
-};
+    <div>page</div>
+  )
+}
 
-export default Page;
+export default page
