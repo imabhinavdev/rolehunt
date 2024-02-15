@@ -23,8 +23,10 @@ const roboto_serif = Roboto_Serif({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${roboto.variable}`}>
-        <Navbar />
+      <body
+        className={`${inter.className} md:mx-auto max-w-screen-xl px-4 select-none bg-white min-h-screen`}
+      >
+        <NavBar />
         {children}
       </body>
     </html>
