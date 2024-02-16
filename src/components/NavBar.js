@@ -11,9 +11,10 @@ const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
   const navigation = [
-    { title: "Dashboard", path: "/dashboard" },
+    { title: "Dashboard", path: "/user/dashboard" },
     { title: "About", path: "/about" },
     { title: "Help", path: "/help" },
+    { title: "Admin", path: "/admin/dashboard" },
   ];
 
   useEffect(() => {

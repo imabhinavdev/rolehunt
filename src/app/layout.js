@@ -1,5 +1,6 @@
 import { Inter, Roboto, Roboto_Serif } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar";
 import NavBar from "@/components/Navbar";
 
 const inter = Inter({
@@ -26,7 +27,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.className} md:mx-auto max-w-screen-xl px-4 select-none bg-white min-h-screen`}
       >
-        <NavBar />
         {children}
       </body>
     </html>
