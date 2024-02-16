@@ -1,5 +1,4 @@
 "use client ";
-import Sidebar from "@/components/Sidebar";
 import React from "react";
 import { AllCompanies } from "@/data/Companies";
 import Link from "next/link";

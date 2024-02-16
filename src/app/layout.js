@@ -1,6 +1,5 @@
 import { Inter, Roboto, Roboto_Serif } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
 import NavBar from "@/components/Navbar";
 
 const inter = Inter({
