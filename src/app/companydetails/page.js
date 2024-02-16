@@ -7,7 +7,7 @@ const CompanyDetails = () => {
   return (
     <div className="font-serif">
       <div className="flex items-center p-5">
-        <p className="font-bold text-xl ">Profile Name : </p>
+        <p className="font-bold text-xl mr-10">Profile Name : </p>
         <p className="">XYZ </p>
       </div>
       <div className="w-full shadow-md  drop-shadow-lg p-5">
@@ -40,7 +40,7 @@ const CompanyDetails = () => {
       <PackageOferred />
 
       <div className="flex items-center p-5">
-        <p className="font-bold text-xl ">Company Name : </p>
+        <p className="font-bold text-xl mr-10">Company Name : </p>
         <p className="">XYZ PVT. Ltd.</p>
       </div>
       <div className="shadow-md    p-5">
