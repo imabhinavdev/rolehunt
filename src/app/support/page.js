@@ -10,8 +10,8 @@ const Support = () => {
           fugiat vitae rem dolor eligendi natus obcaecati id exercitationem.
         </p>
       </div>
-      <div className="md:flex mt-10 font-serif h-72 gap-10 bg-purple-300">
-        <div className="  text-justify  bg-slate-400 md:w-1/2 sm:w-ful ">
+      <div className="md:flex mt-10 font-serif h-72 gap-10 ">
+        <div className="  text-justify   md:w-1/2 sm:w-ful ">
           <p className="text-2xl font-bold text-center  mb-4">Generate Query</p>
 
           <input
@@ -20,13 +20,19 @@ const Support = () => {
             className="border rounded-md p-5 w-full h-2/3  shadow-lg"
           />
         </div>
-        <div className="  text-justify  bg-gray-500  md:w-1/2 sm:w-ful  ">
+        <div className="  text-justify    md:w-1/2 sm:w-ful  ">
           <p className="text-2xl font-bold text-center  mb-4">
             Emergency Support
           </p>
-          <div className="bg-white border text-black rounded-md p-5 w-full h-2/3 shadow-lg flex items-center">
-            <span className="mr-6 material-symbols-outlined">call</span>
-            <p>98745663210</p>
+          <div className="bg-white border  text-black rounded-md p-5 w-full h-2/3 shadow-lg  items-center">
+            <div className="flex mb-10">
+              <span className="mr-6 material-symbols-outlined">call</span>
+              <p>98745663210</p>
+            </div>
+            <div className="flex ">
+              <span className="mr-6 material-symbols-outlined">call</span>
+              <p>98745663210</p>
+            </div>
           </div>
         </div>
       </div>
