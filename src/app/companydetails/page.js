@@ -104,6 +104,9 @@ const CompanyDetails = () => {
     </div>
   );
 };
+{
+  /* Heloo this is testing comment */
+}
 
 export default CompanyDetails;
 
