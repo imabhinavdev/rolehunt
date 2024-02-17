@@ -2,22 +2,18 @@ import { Inter, Roboto, Roboto_Serif } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
 
-const inter = Inter({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
 const roboto = Roboto({
   weight: "700",
   subsets: ["latin"],
   variable: "--font-roboto",
+  display: "swap",
 });
 
 const roboto_serif = Roboto_Serif({
   weight: ["100", "400", "300", "500", "700", "900"],
   subsets: ["latin"],
   variable: "--font-serif",
+  display: "swap",
 });
 
 export default function RootLayout({ children }) {
