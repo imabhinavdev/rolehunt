@@ -1,5 +1,5 @@
-import React from "react";
-
+"use client";
+import React, { useEffect } from "react";
 const Profile = () => {
   return <div>Profile</div>;
 };

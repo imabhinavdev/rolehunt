@@ -14,7 +14,7 @@ const ForgetPassword = () => {
                 Trouble with logging in?
               </p>
               <p class="mt-2 text-md text-black ">
-                Enter your email address, phone number or username, and we'll
+                Enter your email address, phone number or username, and we &apos;ll
                 send you an OTP to get back into your account.
               </p>
             </div>
