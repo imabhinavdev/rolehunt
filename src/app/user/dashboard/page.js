@@ -1,6 +1,7 @@
 import React from "react";
 import JoblistCard from "@/components/JoblistCard";
 import NavBar from "@/components/Navbar";
+import Image from "next/image";
 
 const Userdashboard = () => {
   return (
@@ -10,9 +11,11 @@ const Userdashboard = () => {
           <div className="max-w-screen-xl ">
             <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
               <div className="flex-1 sm:hidden lg:block">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                   className="md:max-w-lg sm:rounded-lg"
+                  width={500}
+                  height={500}
                   alt=""
                 />
               </div>
@@ -36,7 +39,7 @@ const Userdashboard = () => {
             </div>
           </div>
         </section>
-
+        
         <JoblistCard />
       </div>
     </>
