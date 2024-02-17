@@ -16,7 +16,7 @@ const NavBar = () => {
     { title: "Help", path: "/help" },
     { title: "Admin", path: "/admin/dashboard" },
     { title: "Support", path: "/support" },
-    { title: "Forget Password", path: "/user/forgetpassword " },
+    { title: "Forget Password", path: "/forgetpassword " },
   ];
 
   useEffect(() => {

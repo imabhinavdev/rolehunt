@@ -2,15 +2,15 @@ import React from "react";
 
 const Support = () => {
   return (
-    <div className="">
+    <div className="font-roboto">
       <div>
-        <p className="text-4xl text-center font-serif font-medium">Support</p>
-        <p className="text-xl mt-5 text-justify  font-serif font-medium">
+        <p className="text-4xl text-center  font-medium">Support</p>
+        <p className="text-xl mt-5 text-justify ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sint a
           fugiat vitae rem dolor eligendi natus obcaecati id exercitationem.
         </p>
       </div>
-      <div className="md:flex mt-10 font-serif h-72 gap-10 ">
+      <div className="md:flex mt-10  h-72 gap-10 ">
         <div className="  text-justify   md:w-1/2 sm:w-ful ">
           <p className="text-2xl font-bold text-center  mb-4">Generate Query</p>
 

@@ -2,13 +2,13 @@
 import React from "react";
 import { AllCompanies } from "@/data/Companies";
 import Link from "next/link";
-const AdminCompany = () => {
+const AdminStudents = () => {
   return (
     <>
       <div className="items-start justify-between md:flex">
         <div className="max-w-lg">
           <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
-            All Companies
+            All Students
           </h3>
           <p className="text-gray-600 mt-2">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -17,10 +17,10 @@ const AdminCompany = () => {
         </div>
         <div className="mt-3 md:mt-0">
           <Link
-            href="#"
-            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm"
+            href="/admin/students/add"
+            className="inline-block px-4 py-2 text-black duration-150 font-medium bg-yellow rounded-lg hover:bg-green active:bg-green md:text-sm"
           >
-            Add Companies
+            Add Student
           </Link>
         </div>
       </div>
@@ -29,9 +29,9 @@ const AdminCompany = () => {
           <thead className="text-gray-600 font-medium border-b">
             <tr>
               <th className="py-3 pr-6 ">Name</th>
-              <th className="py-3 pr-6">Date</th>
+              <th className="py-3 pr-6">Batch</th>
+              <th className="py-3 pr-6">Domain</th>
               <th className="py-3 pr-6">Status</th>
-              <th className="py-3 pr-6">Purchase</th>
               <th className="py-3 pr-6">Price</th>
               <th className="py-3 pr-6"></th>
             </tr>
@@ -45,8 +45,8 @@ const AdminCompany = () => {
                   <span
                     className={`px-3 py-2 rounded-full font-semibold text-xs ${
                       item.status == "Active"
-                        ? "text-green-600 bg-green-50"
-                        : "text-blue-600 bg-blue-50"
+                        ? "text-cyan-600 bg-cyan-50"
+                        : "text-red-600 bg-red-50"
                     }`}
                   >
                     {item.status}
@@ -71,4 +71,4 @@ const AdminCompany = () => {
   );
 };
 
-export default AdminCompany;
+export default AdminStudents;

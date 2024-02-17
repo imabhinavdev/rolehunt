@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-const UserSidebar = ({ children }) => {
+const TestingSidebar = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -35,7 +35,7 @@ const UserSidebar = ({ children }) => {
                   />
                 </svg>
               </button>
-              <Link href="/" className="flex ms-2 md:me-24">
+              <Link href="https://flowbite.com" className="flex ms-2 md:me-24">
                 <img
                   src="https://flowbite.com/docs/images/logo.svg"
                   className="h-8 me-3"
@@ -222,4 +222,4 @@ const UserSidebar = ({ children }) => {
   );
 };
 
-export default UserSidebar;
+export default TestingSidebar;

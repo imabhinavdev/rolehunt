@@ -31,7 +31,7 @@ const Userdashboard = () => {
                   omnis iste natus error sit voluptatem accusantium doloremque
                   laudantium
                 </p>
-                <div className="flex mt-20 w-96 bg-green justify-between p-4 rounded-full">
+                <div className="flex mt-20 w-full sm:w-96 bg-green justify-between p-4 rounded-full">
                   <p>Be Role Ready</p>
                   <p className="text-white">Get Started</p>
                 </div>
@@ -39,7 +39,7 @@ const Userdashboard = () => {
             </div>
           </div>
         </section>
-        
+
         <JoblistCard />
       </div>
     </>
