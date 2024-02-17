@@ -28,12 +28,8 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         />
-        ;
       </head>
-      <body
-        className={`${inter.className} md:mx-auto max-w-screen-xl px-4 select-none bg-white min-h-screen`}
-      >
-        <NavBar />
+      <body className={`${roboto.variable} ${roboto_serif.variable} `}>
         {children}
       </body>
     </html>
