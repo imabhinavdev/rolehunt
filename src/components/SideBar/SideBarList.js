@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const SideBarList = ({ toggleSidebar, Icon, data }) => {
   return (
-    <motion.li whileTap={{scale:.98}} whileHover={{scale:1.02}}>
+    <motion.li whileTap={{ scale: 0.98 }} whileHover={{ scale: 1.02 }}>
       <Link
         href={data.link}
         className=" flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group "

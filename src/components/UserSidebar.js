@@ -115,11 +115,11 @@ const SideBarData = [
     link: "/user/profile/edit",
     icon: Edit,
   },
-  {
-    title: "Users",
-    link: "/user/users",
-    icon: Users,
-  },
+  // {
+  //   title: "Users",
+  //   link: "/user/users",
+  //   icon: Users,
+  // },
   {
     title: "Logout",
     link: "/user/logout",

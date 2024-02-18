@@ -20,7 +20,7 @@ const Userdashboard = () => {
                 />
               </div>
               <div className="max-w-xl    sm:px-0  lg:max-w-2xl">
-                <p className="text-black text-3xl font-semibold font-serif sm:text-4xl">
+                <p className="text-black text-3xl  font-serif sm:text-4xl">
                   One Step Closer To Your New Job
                 </p>
                 <p className="mt-3 text-gray-600 font-serif text-justify ">
@@ -31,7 +31,7 @@ const Userdashboard = () => {
                   <span className="font-bold font-roboto"> Vision </span>of the
                   company and the skills needed to land a job in that company.
                 </p>
-                <div className="flex mt-20 w-full sm:w-96 bg-green justify-between p-4 rounded-full">
+                <div className="flex mt-20 w-full sm:w-96 bg-yellow justify-between p-4 rounded-full">
                   <p>Be Role Ready</p>
                   <p className="text-white">Get Started</p>
                 </div>
