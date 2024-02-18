@@ -1,24 +1,5 @@
 const JobListCard = () => {
-  const jobs = [
-    {
-      title: "UI – Front End Dev",
-      desc: "Currently, ManTech is seeking a motivated, career and customer-oriented Software Developer to join our team in Fort Meade, MD.",
-      date: "May 17, 2022",
-      salary: "98,000 USD",
-      type: "Full-time",
-      location: "Columbia, MD",
-      href: "javascript:void(0)",
-    },
-    {
-      title: "UX – Front End Dev",
-      desc: "Currently, ManTech is seeking a motivated, career and customer-oriented Software Developer to join our team in Fort Meade, MD.",
-      date: "May 17, 2022",
-      salary: "98,000 USD",
-      type: "Full-time",
-      location: "Columbia, MD",
-      href: "javascript:void(0)",
-    },
-  ];
+  const jobs = [];
 
   return jobs.length > 0 ? (
     <>
@@ -117,7 +98,11 @@ const JobListCard = () => {
     </>
   ) : (
     <>
-      <p>No Jobs Listed</p>
+      <div className=" p-10 flex justify-center mt-10">
+        <p className="text-4xl text-black text-center p-5 rounded-full shadow-md  w-96">
+          No Jobs Listed
+        </p>
+      </div>
     </>
   );
 };
