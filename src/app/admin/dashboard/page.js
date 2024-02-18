@@ -4,7 +4,7 @@ import AdminDashboardCard from "@/components/AdminDashboardCard";
 const AdminDashboard = () => {
   return (
     <>
-      <div className="grid grid-cols-auto grid-flow-col  gap-4 ">
+      <div className="grid grid-cols-1 h-full md:grid-cols-2 lg:grid-cols-4 grid-flow-row gap-y-5 gap-x-12">
         {CardData.map((data, index) => (
           <AdminDashboardCard key={index} data={data} />
         ))}
@@ -21,7 +21,7 @@ const CardData = [
     description:
       "You can manage the companies coming to the campus or the companies present.",
     link: "/admin/company",
-    buttonText: "Manage Company",
+    buttonText: "Manage",
   },
   {
     title: "Manage Students",
@@ -41,5 +41,17 @@ const CardData = [
     description: "You can manage the placements of the students.",
     link: "/admin/placements",
     buttonText: "Manage",
+  },
+  {
+    title: "Add Companies",
+    description: "You can add the companies that are coming to the campus.",
+    link: "/admin/company/add",
+    buttonText: "Add Company",
+  },
+  {
+    title: "Add Jobs",
+    description: "You can add the jobs that are available for the students.",
+    link: "/admin/jobs/add",
+    buttonText: "Add Job",
   },
 ];

@@ -2,17 +2,17 @@ import React from "react";
 import Link from "next/link";
 const AdminDashboardCard = ({ data }) => {
   return (
-    <div className="">
-      <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow ">
-        <Link href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-            {data.title}
-          </h5>
-        </Link>
-        <p className="mb-3 font-normal text-gray-700 ">{data.description}</p>
+    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow flex flex-col justify-between">
+      <Link href="#">
+        <h5 className="mb-2 text-3xl lg:text-xl font-bold tracking-tight text-gray-900">
+          {data.title}
+        </h5>
+      </Link>
+      <p className="mb-3 font-normal text-gray-700 ">{data.description}</p>
+      <span>
         <Link
           href={data.link}
-          className=" transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green rounded-lg hover:bg-yellow focus:ring-4 focus:outline-none focus:ring-yellow-300 "
+          className="transition-all inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green rounded-lg hover:bg-yellow focus:ring-4 focus:outline-none focus:ring-yellow-300"
         >
           {data.buttonText}
           <svg
@@ -31,7 +31,7 @@ const AdminDashboardCard = ({ data }) => {
             />
           </svg>
         </Link>
-      </div>
+      </span>
     </div>
   );
 };

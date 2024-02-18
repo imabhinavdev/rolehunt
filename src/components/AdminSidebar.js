@@ -41,7 +41,10 @@ const AdminSidebar = ({ children }) => {
                   className="h-8 me-3"
                   alt="FlowBite Logo"
                 />
-                <motion.span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white" whileTap={{scale:.98}}>
+                <motion.span
+                  className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
+                  whileTap={{ scale: 0.98 }}
+                >
                   RoleHunt Admin
                 </motion.span>
               </Link>
@@ -51,13 +54,13 @@ const AdminSidebar = ({ children }) => {
                 <div>
                   <button
                     type="button"
-                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    className="flex text-sm rounded-full focus:ring-4 focus:ring-gray-300 "
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
                   >
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                      src="/images/user.png"
                       alt="user photo"
                     />
                   </button>
