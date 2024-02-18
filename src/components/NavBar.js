@@ -6,6 +6,8 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+
 const NavBar = () => {
   const [state, setState] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,7 +20,6 @@ const NavBar = () => {
     { title: "Support", path: "/support" },
     { title: "Forget Password", path: "/forgetpassword " },
   ];
-
   useEffect(() => {
     const storedToken = Cookies.get("token");
     if (storedToken) {
@@ -36,9 +37,9 @@ const NavBar = () => {
       <div className="gap-x-14 items-center  mx-auto px-4 md:flex md:px-0">
         <div className="flex items-center justify-between py-5 md:block">
           <Link href="/" onClick={() => setState(false)}>
-            <h1 className="text-3xl font-pop font-extrabold text-primary">
+            <motion.h1 className="text-3xl font-pop font-extrabold text-primary" whileTap={{scale:.98}}>
               RoleReady
-            </h1>
+            </motion.h1>
           </Link>
           <div className="md:hidden">
             <button
@@ -85,15 +86,17 @@ const NavBar = () => {
           <ul className="justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
             {navigation.map((item, idx) => {
               return (
-                <li
+                <motion.li
                   key={idx}
                   className="text-gray-700 hover:text-gray-900 font-pop"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => setState(false)}
                 >
                   <Link href={item.path} className="block">
                     {item.title}
                   </Link>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
@@ -101,18 +104,6 @@ const NavBar = () => {
             {isLoggedIn ? (
               <button className="flex items-center justify-center gap-x-1 py-2 px-4 text-black font-bold bg-yellow  hover:bg-orange-300  rounded-full md:inline-flex">
                 Logout
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                    clipRule="evenodd"
-                  />
-                </svg>
               </button>
             ) : (
               <Link
@@ -120,18 +111,6 @@ const NavBar = () => {
                 className="flex items-center justify-center gap-x-1 py-2 px-4 text-black font-bold bg-yellow hover:bg-orange-300  transition rounded-full md:inline-flex"
               >
                 Log in
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                    clipRule="evenodd"
-                  />
-                </svg>
               </Link>
             )}
           </div>

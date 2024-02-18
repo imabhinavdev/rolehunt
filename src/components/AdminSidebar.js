@@ -12,6 +12,7 @@ import {
   Users,
 } from "@/components/Icons";
 import SideBarList from "./SideBar/SideBarList";
+import { motion } from "framer-motion";
 
 const AdminSidebar = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -40,9 +41,9 @@ const AdminSidebar = ({ children }) => {
                   className="h-8 me-3"
                   alt="FlowBite Logo"
                 />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+                <motion.span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white" whileTap={{scale:.98}}>
                   RoleHunt Admin
-                </span>
+                </motion.span>
               </Link>
             </div>
             <div className="flex items-center">
