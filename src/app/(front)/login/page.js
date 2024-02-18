@@ -5,7 +5,9 @@ const Login = () => {
     <main className="w-full  flex flex-col items-center md:shadow-lg md:p-10 px-4">
       <div className="max-w-sm w-full shadow-lg p-10 text-gray-600">
         <div className="text-center ">
-          <h1 className="text-4xl  font-bold text-yellow">RoleHunt</h1>
+          <h1 className="text-4xl  font-bold text-yellow hover:text-green">
+            RoleHunt
+          </h1>
           <div className="mt-5 space-y-2">
             <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
               Log in to your account
@@ -18,7 +20,7 @@ const Login = () => {
             <input
               type="email"
               required
-              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-yellow shadow-sm rounded-lg"
             />
           </div>
           <div>
@@ -26,11 +28,11 @@ const Login = () => {
             <input
               type="password"
               required
-              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-yellow shadow-sm rounded-lg"
             />
           </div>
-          <button className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
-            Sign in
+          <button className="w-full px-4 py-2 text-white font-medium bg-yellow hover:bg-green active:bg-yellow rounded-lg duration-150">
+            Log in
           </button>
           <div className="text-center">
             <Link href="#" className="hover:text-indigo-600">
