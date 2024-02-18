@@ -11,6 +11,7 @@ import {
   Profile,
   Users,
 } from "@/components/Icons";
+import SideBarList from "./SideBar/SideBarList";
 
 const AdminSidebar = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -74,63 +75,14 @@ const AdminSidebar = ({ children }) => {
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
-            <li>
-              <Link
-                href="/admin/dashboard"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Dashboard className="w-5" />
-                <span className="ms-3">Dashboard</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/admin/company"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Company className="w-5" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Company</span>
-                <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                  Pro
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Jobs className="w-5" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Jobs</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/admin/students"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Users className="w-5" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Students</span>
-                <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                  3
-                </span>
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Logout className="w-6" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Logout</span>
-              </Link>
-            </li>
+            {SideBarData.map((sidebar, index) => (
+              <SideBarList
+                key={index}
+                toggleSidebar={toggleSidebar}
+                data={sidebar}
+                Icon={sidebar.icon}
+              />
+            ))}
           </ul>
         </div>
       </aside>
@@ -142,3 +94,31 @@ const AdminSidebar = ({ children }) => {
 };
 
 export default AdminSidebar;
+
+const SideBarData = [
+  {
+    title: "Dashboard",
+    link: "/admin/dashboard",
+    icon: Dashboard,
+  },
+  {
+    title: "Company",
+    link: "/admin/company",
+    icon: Company,
+  },
+  {
+    title: "Jobs",
+    link: "/admin/jobs",
+    icon: Jobs,
+  },
+  {
+    title: "Students",
+    link: "/admin/students",
+    icon: Users,
+  },
+  {
+    title: "Logout",
+    link: "/admin/logout",
+    icon: Logout,
+  },
+];

@@ -56,7 +56,7 @@ const AdminStudents = () => {
                 <td className="pr-6 py-4 whitespace-nowrap">{item.price}</td>
                 <td className="text-right whitespace-nowrap">
                   <Link
-                    href="javascript:void()"
+                    href="#"
                     className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
                   >
                     Manage

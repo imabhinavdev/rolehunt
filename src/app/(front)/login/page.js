@@ -33,7 +33,7 @@ const Login = () => {
             Sign in
           </button>
           <div className="text-center">
-            <Link href="javascript:void(0)" className="hover:text-indigo-600">
+            <Link href="#" className="hover:text-indigo-600">
               Forgot password?
             </Link>
           </div>

@@ -9,6 +9,7 @@ import {
   Profile,
   Users,
 } from "@/components/Icons";
+import SideBarList from "@/components/SideBar/SideBarList";
 
 const UserSidebar = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -72,60 +73,14 @@ const UserSidebar = ({ children }) => {
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
-            <li>
-              <Link
-                href="/user/dashboard"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Dashboard className="w-5" />
-                <span className="ms-3">Dashboard</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/user/profile"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Profile className="w-4" />
-
-                <span className="flex-1 ms-3 whitespace-nowrap">Profile</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/user/profile/edit"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Edit className="w-5" />
-                <span className="flex-1 ms-3 whitespace-nowrap">
-                  Edit Profile
-                </span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Users className="w-5" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Users</span>
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-                onClick={toggleSidebar}
-              >
-                <Logout className="w-6" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Logout</span>
-              </Link>
-            </li>
+            {SideBarData.map((data, index) => (
+              <SideBarList
+                key={index}
+                data={data}
+                toggleSidebar={toggleSidebar}
+                Icon={data.icon}
+              />
+            ))}
           </ul>
         </div>
       </aside>
@@ -137,3 +92,31 @@ const UserSidebar = ({ children }) => {
 };
 
 export default UserSidebar;
+
+const SideBarData = [
+  {
+    title: "Dashboard",
+    link: "/user/dashboard",
+    icon: Dashboard,
+  },
+  {
+    title: "Profile",
+    link: "/user/profile",
+    icon: Profile,
+  },
+  {
+    title: "Edit Profile",
+    link: "/user/profile/edit",
+    icon: Edit,
+  },
+  {
+    title: "Users",
+    link: "/user/users",
+    icon: Users,
+  },
+  {
+    title: "Logout",
+    link: "/user/logout",
+    icon: Logout,
+  },
+];

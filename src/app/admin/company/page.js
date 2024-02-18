@@ -18,7 +18,7 @@ const AdminCompany = () => {
         <div className="mt-3 md:mt-0">
           <Link
             href="#"
-            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-indigo-600 rounded-lg hover:bg-indigo-500 active:bg-indigo-700 md:text-sm"
+            className="inline-block px-4 py-2 text-white duration-150 font-medium bg-yellow rounded-lg hover:opacity-90  md:text-sm"
           >
             Add Companies
           </Link>
@@ -45,8 +45,8 @@ const AdminCompany = () => {
                   <span
                     className={`px-3 py-2 rounded-full font-semibold text-xs ${
                       item.status == "Active"
-                        ? "text-green-600 bg-green-50"
-                        : "text-blue-600 bg-blue-50"
+                        ? "text-cyan-600 bg-cyan-50"
+                        : "text-red-600 bg-red-50"
                     }`}
                   >
                     {item.status}
@@ -56,7 +56,7 @@ const AdminCompany = () => {
                 <td className="pr-6 py-4 whitespace-nowrap">{item.price}</td>
                 <td className="text-right whitespace-nowrap">
                   <Link
-                    href="javascript:void()"
+                    href="#"
                     className="py-1.5 px-3 text-gray-600 hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
                   >
                     Manage
