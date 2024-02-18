@@ -108,7 +108,7 @@ const SideBarData = [
   },
   {
     title: "Jobs",
-    link: "/admin/jobs",
+    link: "#",
     icon: Jobs,
   },
   {
@@ -118,7 +118,7 @@ const SideBarData = [
   },
   {
     title: "Logout",
-    link: "/admin/logout",
+    link: "#",
     icon: Logout,
   },
 ];
