@@ -37,8 +37,11 @@ const NavBar = () => {
       <div className="gap-x-14 items-center  mx-auto px-4 md:flex md:px-0">
         <div className="flex items-center justify-between py-5 md:block">
           <Link href="/" onClick={() => setState(false)}>
-            <motion.h1 className="text-3xl font-pop font-extrabold text-primary" whileTap={{scale:.98}}>
-              RoleReady
+            <motion.h1
+              className="text-3xl font-pop font-extrabold text-primary"
+              whileTap={{ scale: 0.98 }}
+            >
+              RoleHunt
             </motion.h1>
           </Link>
           <div className="md:hidden">

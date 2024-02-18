@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const Login = () => {
   return (
-    <main className="w-full  flex flex-col items-center md:shadow-lg md:p-10 px-4">
-      <div className="max-w-sm w-full shadow-lg p-10 text-gray-600">
+    <main className="w-full  flex flex-col items-center md:bg-yellow md:shadow-lg md:p-10 px-4">
+      <div className="max-w-sm w-full bg-white shadow-lg p-10 text-gray-600">
         <div className="text-center ">
           <h1 className="text-4xl  font-bold text-yellow hover:text-green">
             RoleHunt

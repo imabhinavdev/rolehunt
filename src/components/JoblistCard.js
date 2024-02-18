@@ -1,3 +1,5 @@
+import { Heart, Rupees } from "@/components/Icons";
+
 const JobListCard = () => {
   const jobs = [
     {
@@ -6,6 +8,15 @@ const JobListCard = () => {
       desc: "ash;aldfhkajd;oa;odivjalksvnj;oaorv;aoiei;voidhnalksjdfa;erjag;oejf;jk'afker;ofjse;jv;iiklksmdfclkvnxdjnb ,cvmzdlkfvm;sodifjv;sod'asrjf;aoeijfoidsjsmlkdfnvsodlhnfvsoiendvklnsdlfknvsodifj;dso sijeiafoerjoeif;dnv;slnerlseonerofnvseilgnjvsiolkjndos;ofnvskzlm",
       date: "12/20/36",
       salary: "50000",
+      type: "Remote",
+      location: "Mumbai",
+    },
+    {
+      href: "https://www.google.com/",
+      title: "Testing",
+      desc: "ash;aldfhkajd;oa;odivjalksvnj;oaorv;aoiei;voidhnalksjdfa;erjag;oejf;jk'afker;ofjse;jv;iiklksmdfclkvnxdjnb ,cvmzdlkfvm;sodifjv;sod'asrjf;aoeijfoidsjsmlkdfnvsodlhnfvsoiendvklnsdlfknvsodifj;dso sijeiafoerjoeif;dnv;slnerlseonerofnvseilgnjvsiolkjndos;ofnvskzlm",
+      date: "12/20/36",
+      salary: "10000",
       type: "Remote",
       location: "Mumbai",
     },
@@ -24,7 +35,7 @@ const JobListCard = () => {
           {jobs.map((item, idx) => (
             <li
               key={idx}
-              className="p-5 bg-green bg-opacity-20 rounded-md shadow-md"
+              className="p-5 bg-yellow bg-opacity-20 rounded-md shadow-md"
             >
               <a href={item.href}>
                 <div>
@@ -52,29 +63,7 @@ const JobListCard = () => {
                         {item.date}
                       </span>
                       <span className="flex items-center w-16 h-12   text-gray-500">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <g id="SVGRepo_bgCarrier" strokeWidth={0} />
-                          <g
-                            id="SVGRepo_tracerCarrier"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <g id="SVGRepo_iconCarrier">
-                            {" "}
-                            <path
-                              d="M6 4H10.5M10.5 4C12.9853 4 15 6.01472 15 8.5C15 10.9853 12.9853 13 10.5 13H6L13 20M10.5 4H18M6 8.5H18"
-                              stroke="#000000"
-                              strokeWidth={2}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />{" "}
-                          </g>
-                        </svg>
-
+                        <Rupees />
                         {item.salary}
                       </span>
                     </div>
@@ -114,6 +103,17 @@ const JobListCard = () => {
                   </div>
                 </div>
               </a>
+              <div className="md:flex  gap-10">
+                <div className="flex justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5">
+                  <p>Interested</p>
+                  <div className="w-8 h-8">
+                    <Heart />
+                  </div>
+                </div>
+                <div className="flex justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5">
+                  <p>Check this opportunity</p>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
