@@ -61,7 +61,7 @@ const AddStudent = () => {
                 placeholder="Enter your new password"
                 id="newPassword"
                 type="password"
-                autocomplete="new-password"
+                autoComplete="new-password"
               />
             </div>
 
