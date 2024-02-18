@@ -14,8 +14,8 @@ const ForgetPassword = () => {
                 Trouble with logging in?
               </p>
               <p class="mt-2 text-md text-black ">
-                Enter your email address, phone number or username, and we &apos;ll
-                send you an OTP to get back into your account.
+                Enter your email address, phone number or username, and we
+                &apos;ll send you an OTP to get back into your account.
               </p>
             </div>
             <div class="mt-6 w-full">
@@ -27,7 +27,7 @@ const ForgetPassword = () => {
             </div>
           </div>
         </div>
-        <div class="flex px-6 pb-8 sm:px-8 mb-10">
+        <div class="flex  pb-8  mb-10">
           <a
             aria-describedby="tier-company"
             className="flex mt-5 items-center justify-center w-full  py-3 text-center text-white  bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"

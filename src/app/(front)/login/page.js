@@ -1,42 +1,45 @@
-"use client";
-import React from "react";
+import Link from "next/link";
 
 const Login = () => {
   return (
-    <div className="flex justify-center h-full p-6 bg-yellow ">
-      <div className="bg-green flex justify-center items-center w-4/5 h-screen rounded-xl">
-        <div className="bg-white flex flex-col w-2/6  h-2/5 rounded-xl p-4">
-          <p className="text-5xl text-center text-green font-bold font-roboto">
-            Login
-          </p>
-          <div className="flex flex-col font-">
-            <label className="mb-2 font-serif text-black" htmlFor="email">
-              Email :{" "}
-            </label>
-            <input
-              className=" focus:outline-none focus:border-green focus:border-4 focus:rounded p-1"
-              id="email"
-              type="email"
-              placeholder="Enter your email..."
-            />
-          </div>
-          <div className="flex flex-col font- mt-5">
-            <label className="mb-2 font-serif text-black" htmlFor="password">
-              Password :{" "}
-            </label>
-            <input
-              className=" focus:outline-none focus:border-green focus:border-4 focus:rounded p-1"
-              id="password"
-              type="password"
-              placeholder="Enter your password..."
-            />
-            <button className="bg-green font-bold  mt-5 p-1 w-20 rounded text-center text-white">
-              Login
-            </button>
+    <main className="w-full  flex flex-col items-center md:shadow-lg md:p-10 px-4">
+      <div className="max-w-sm w-full shadow-lg p-10 text-gray-600">
+        <div className="text-center ">
+          <h1 className="text-4xl  font-bold text-yellow">RoleHunt</h1>
+          <div className="mt-5 space-y-2">
+            <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
+              Log in to your account
+            </h3>
           </div>
         </div>
+        <form className="mt-8 space-y-5">
+          <div>
+            <label className="font-medium">Email</label>
+            <input
+              type="email"
+              required
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+            />
+          </div>
+          <div>
+            <label className="font-medium">Password</label>
+            <input
+              type="password"
+              required
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+            />
+          </div>
+          <button className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
+            Sign in
+          </button>
+          <div className="text-center">
+            <Link href="javascript:void(0)" className="hover:text-indigo-600">
+              Forgot password?
+            </Link>
+          </div>
+        </form>
       </div>
-    </div>
+    </main>
   );
 };
 
