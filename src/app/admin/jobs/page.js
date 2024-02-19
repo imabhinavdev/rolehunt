@@ -30,13 +30,21 @@ const integrations = [
 const AdminJobs = () => (
   <section className="  ">
     <div className="max-w-screen-xl  ">
-      <div className="max-w-md">
+      <div className="max-w-md flex flex-col gap-4">
         <h1 className="text-gray-800 text-xl font-extrabold sm:text-2xl">
           Jobs and Internships
         </h1>
         <p className="text-gray-600 mt-2">
           All the jobs and internships listed by you will be shown here.
         </p>
+        <span>
+          <Link
+            href="/admin/jobs/add"
+            className="p-1 bg-yellow mt rounded-lg font-semibold text-white text-sm px-4 py-2 duration-150 hover:bg-yellow-500"
+          >
+            New Job
+          </Link>
+        </span>
       </div>
       <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {integrations.map((item, idx) => (

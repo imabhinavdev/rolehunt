@@ -27,7 +27,7 @@ export const Linkedin = ({ className }) => {
 
 const Support = () => {
   return (
-    <div className="font-roboto shadow-lg bg-yellow bg-opacity-30 md:p-4 p-4 pb-10  ">
+    <div className="font-pop shadow-lg bg-yellow bg-opacity-30 md:p-4 p-4 pb-10  ">
       <div>
         <p className="text-3xl text-center  font-medium">Support</p>
         <p className="md:text-md text-gray-500 mt-5 text-justify md:text-center ">

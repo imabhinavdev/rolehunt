@@ -1,18 +1,24 @@
-import { Inter, Roboto, Roboto_Serif } from "next/font/google";
+import {
+  Inter,
+  Roboto,
+  Roboto_Serif,
+  Poppins,
+  DM_Serif_Text,
+} from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
 
-const roboto = Roboto({
-  weight: "700",
+const roboto = Poppins({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--font-pop",
   display: "swap",
 });
 
-const roboto_serif = Roboto_Serif({
-  weight: ["100", "400", "300", "500", "700", "900"],
+const roboto_serif = DM_Serif_Text({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-dm",
   display: "swap",
 });
 
@@ -25,7 +31,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         />
       </head>
-      <body className={`${roboto.variable} ${roboto_serif.variable} `}>
+      <body className={`${roboto.variable} ${roboto_serif.variable} font-pop `}>
         {children}
       </body>
     </html>
