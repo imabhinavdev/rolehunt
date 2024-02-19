@@ -1,11 +1,11 @@
 import { Github, Leetcode, Linkedin } from "@/components/Icons";
 import React from "react";
-
+import Link from "next/link";
 const Profile = () => {
   return (
     <div className="w-full  ">
       <div className="flex  w-full flex-col shadow-md items-center rounded-md border md:flex-row">
-        <div className="h-full w-full md:h-[200px] md:w-[300px]">
+        <div className="h-full w-full md:h-60 md:w-80">
           <img
             src="https://img.freepik.com/free-photo/portrait-young-woman-with-magnificent-smile-standing-with-arms-folded-isolated-white_171337-1184.jpg?w=1380&t=st=1708233179~exp=1708233779~hmac=e3acdcd12c791ed532a9dc431c16b893301f8c63136870ae47d593b8acc85a7f"
             alt="Laptop"
@@ -15,14 +15,15 @@ const Profile = () => {
         <div>
           <div className="p-5 ">
             <div className="flex gap-10 items-center justify-between ">
-              <h1 className="inline-flex items-center text-4xl font-semibold">
+              <h1 className=" items-center text-2xl md:text-4xl font-semibold">
                 Anushka Kishor
               </h1>
-              <div className="sm:w-28 md:32">
-                <p className="md:px-2 sm:px-6 shadow-md inline-block rounded-full bg-blue text-black   font-medium">
-                  Edit Profile
-                </p>
-              </div>
+              <Link
+                href="#"
+                className="md:px-2 sm:px-6 shadow-md  rounded-full  bg-green  text-white text-sm w-28 p-1 text-center "
+              >
+                Edit Profile
+              </Link>
             </div>
             <p className="mt-3 text-lg text-gray-600">
               Developer by profession and Designer by passion

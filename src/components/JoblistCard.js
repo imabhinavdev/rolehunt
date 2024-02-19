@@ -5,7 +5,7 @@ const JobListCard = () => {
     {
       href: "https://www.google.com/",
       title: "UI/UX Designer",
-      desc: "ash;aldfhkajd;oa;odivjalksvnj;oaorv;aoiei;voidhnalksjdfa;erjag;oejf;jk'afker;ofjse;jv;iiklksmdfclkvnxdjnb ,cvmzdlkfvm;sodifjv;sod'asrjf;aoeijfoidsjsmlkdfnvsodlhnfvsoiendvklnsdlfknvsodifj;dso sijeiafoerjoeif;dnv;slnerlseonerofnvseilgnjvsiolkjndos;ofnvskzlm",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       date: "12/20/36",
       salary: "50000",
       type: "Remote",
@@ -14,7 +14,7 @@ const JobListCard = () => {
     {
       href: "https://www.google.com/",
       title: "Testing",
-      desc: "ash;aldfhkajd;oa;odivjalksvnj;oaorv;aoiei;voidhnalksjdfa;erjag;oejf;jk'afker;ofjse;jv;iiklksmdfclkvnxdjnb ,cvmzdlkfvm;sodifjv;sod'asrjf;aoeijfoidsjsmlkdfnvsodlhnfvsoiendvklnsdlfknvsodifj;dso sijeiafoerjoeif;dnv;slnerlseonerofnvseilgnjvsiolkjndos;ofnvskzlm",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       date: "12/20/36",
       salary: "10000",
       type: "Remote",
@@ -44,7 +44,9 @@ const JobListCard = () => {
                       <h3 className="text-2xl  font-bold text-black ">
                         {item.title}
                       </h3>
-                      <p className="text-gray-500 mt-2  pr-2">{item.desc}</p>
+                      <p className="text-gray-500 mt-2 font-normal text-wrap  pr-2">
+                        {item.desc}
+                      </p>
                     </div>
                     <div className="mt-5 space-y-4 text-sm sm:mt-0 sm:space-y-2">
                       <span className="flex items-center text-gray-500">
