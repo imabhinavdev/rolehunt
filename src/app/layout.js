@@ -1,10 +1,4 @@
-import {
-  Inter,
-  Roboto,
-  Roboto_Serif,
-  Poppins,
-  DM_Serif_Text,
-} from "next/font/google";
+import { Poppins, DM_Serif_Text, PT_Serif } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/Navbar";
 
@@ -15,10 +9,10 @@ const roboto = Poppins({
   display: "swap",
 });
 
-const roboto_serif = DM_Serif_Text({
+const roboto_serif = PT_Serif({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-dm",
+  variable: "--font-pt",
   display: "swap",
 });
 

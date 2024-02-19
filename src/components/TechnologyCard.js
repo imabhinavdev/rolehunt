@@ -2,7 +2,7 @@ import React from "react";
 
 const TechnologyCard = () => {
   return (
-    <div className="w-48 text-center font-dm font-medium bg-white p-3 shadow-md rounded">
+    <div className="w-48 text-center font-pt font-medium bg-white p-3 shadow-md rounded">
       <p>Python</p>
     </div>
   );

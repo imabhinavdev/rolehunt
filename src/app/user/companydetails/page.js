@@ -5,7 +5,7 @@ import TechnologyCard from "@/components/TechnologyCard";
 
 const CompanyDetails = () => {
   return (
-    <div className="font-dm">
+    <div className="font-pt">
       <div className="flex items-center p-5">
         <p className="font-bold text-xl mr-10">Profile Name : </p>
         <p className="">XYZ </p>

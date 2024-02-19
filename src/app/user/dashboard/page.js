@@ -20,10 +20,10 @@ const Userdashboard = () => {
                 />
               </div>
               <div className="max-w-xl    sm:px-0  lg:max-w-2xl">
-                <p className="text-black text-3xl  font-dm sm:text-4xl">
+                <p className="text-black text-3xl   font-pt sm:text-4xl">
                   One Step Closer To Your New Job
                 </p>
-                <p className="mt-3 text-gray-600 font-dm text-justify ">
+                <p className="mt-3 text-gray-600 font-pt text-justify ">
                   The RoleHunt platform gives you an exclusive opportunity to
                   explore job opportunities. You can checkout the details of the
                   company and the post they are offering. You can explore the

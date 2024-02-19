@@ -36,7 +36,7 @@ const Profile = () => {
         <div className=" shadow-lg rounded-lg  sm:w-full">
           <div className="flex flex-col p-10  sm:w-full   ">
             <div className="grid items-center  justify-center w-full grid-cols-1 text-left">
-              <p className="md:text-3xl  mb-8 font-dm underline text-black">
+              <p className="md:text-3xl  mb-8 font-pt underline text-black">
                 Details
               </p>
               <div className="flex text-black font-medium  md:text-lg gap-10">
