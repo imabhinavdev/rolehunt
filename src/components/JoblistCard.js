@@ -1,5 +1,26 @@
+import { Heart, Rupees } from "@/components/Icons";
+
 const JobListCard = () => {
-  const jobs = [];
+  const jobs = [
+    {
+      href: "https://www.google.com/",
+      title: "UI/UX Designer",
+      desc: "ash;aldfhkajd;oa;odivjalksvnj;oaorv;aoiei;voidhnalksjdfa;erjag;oejf;jk'afker;ofjse;jv;iiklksmdfclkvnxdjnb ,cvmzdlkfvm;sodifjv;sod'asrjf;aoeijfoidsjsmlkdfnvsodlhnfvsoiendvklnsdlfknvsodifj;dso sijeiafoerjoeif;dnv;slnerlseonerofnvseilgnjvsiolkjndos;ofnvskzlm",
+      date: "12/20/36",
+      salary: "50000",
+      type: "Remote",
+      location: "Mumbai",
+    },
+    {
+      href: "https://www.google.com/",
+      title: "Testing",
+      desc: "ash;aldfhkajd;oa;odivjalksvnj;oaorv;aoiei;voidhnalksjdfa;erjag;oejf;jk'afker;ofjse;jv;iiklksmdfclkvnxdjnb ,cvmzdlkfvm;sodifjv;sod'asrjf;aoeijfoidsjsmlkdfnvsodlhnfvsoiendvklnsdlfknvsodifj;dso sijeiafoerjoeif;dnv;slnerlseonerofnvseilgnjvsiolkjndos;ofnvskzlm",
+      date: "12/20/36",
+      salary: "10000",
+      type: "Remote",
+      location: "Mumbai",
+    },
+  ];
 
   return jobs.length > 0 ? (
     <>
@@ -12,7 +33,10 @@ const JobListCard = () => {
 
         <ul className="mt-12 space-y-6 ">
           {jobs.map((item, idx) => (
-            <li key={idx} className="p-5 bg-white rounded-md shadow-md">
+            <li
+              key={idx}
+              className="p-5 bg-yellow bg-opacity-20 rounded-md shadow-md"
+            >
               <a href={item.href}>
                 <div>
                   <div className="justify-between sm:flex ">
@@ -20,7 +44,7 @@ const JobListCard = () => {
                       <h3 className="text-2xl  font-bold text-black ">
                         {item.title}
                       </h3>
-                      <p className="text-gray-500 mt-2 pr-2">{item.desc}</p>
+                      <p className="text-gray-500 mt-2  pr-2">{item.desc}</p>
                     </div>
                     <div className="mt-5 space-y-4 text-sm sm:mt-0 sm:space-y-2">
                       <span className="flex items-center text-gray-500">
@@ -38,20 +62,8 @@ const JobListCard = () => {
                         </svg>
                         {item.date}
                       </span>
-                      <span className="flex items-center text-gray-500">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 mr-2"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
+                      <span className="flex items-center w-16 h-12   text-gray-500">
+                        <Rupees />
                         {item.salary}
                       </span>
                     </div>
@@ -91,6 +103,17 @@ const JobListCard = () => {
                   </div>
                 </div>
               </a>
+              <div className="md:flex  gap-10">
+                <div className="flex justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5">
+                  <p>Interested</p>
+                  <div className="w-8 h-8">
+                    <Heart />
+                  </div>
+                </div>
+                <div className="flex justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5">
+                  <p>Check this opportunity</p>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
@@ -98,8 +121,8 @@ const JobListCard = () => {
     </>
   ) : (
     <>
-      <div className=" p-10 flex justify-center mt-10">
-        <p className="text-4xl text-black text-center p-5 rounded-full shadow-md  w-96">
+      <div className=" py-10 flex justify-center mt-10">
+        <p className="text-4xl text-black text-center py-5  shadow-md  w-full bg-yellow bg-opacity-40">
           No Jobs Listed
         </p>
       </div>
