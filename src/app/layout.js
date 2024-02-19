@@ -25,7 +25,9 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
         />
       </head>
-      <body className={`${roboto.variable} ${roboto_serif.variable} font-pop `}>
+      <body
+        className={`${roboto.variable} ${roboto_serif.variable} font-pop select-none  `}
+      >
         {children}
       </body>
     </html>

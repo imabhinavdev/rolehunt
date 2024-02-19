@@ -432,11 +432,11 @@ export const Rupees = ({ className }) => {
   );
 };
 
-export const Heart = ({ className }) => {
+export const Heart = ({ className, fill = "none" }) => {
   return (
     <svg
       viewBox="0 0 24 24"
-      fill="none"
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg "
       className={className}
     >

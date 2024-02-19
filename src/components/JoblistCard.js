@@ -1,5 +1,7 @@
+"use client";
 import { Heart, Rupees } from "@/components/Icons";
-
+import { useState } from "react";
+import { motion } from "framer-motion";
 const JobListCard = () => {
   const jobs = [
     {
@@ -22,6 +24,10 @@ const JobListCard = () => {
     },
   ];
 
+  const [interested, setInterested] = useState(false);
+  const handleInsterested = () => {
+    setInterested(!interested);
+  };
   return jobs.length > 0 ? (
     <>
       <section className=" mt-10  ">
@@ -106,12 +112,17 @@ const JobListCard = () => {
                 </div>
               </a>
               <div className="md:flex  gap-10">
-                <div className="flex justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5">
+                <motion.div
+                  className="flex transition-all justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5 cursor-pointer "
+                  onClick={handleInsterested}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                >
                   <p>Interested</p>
                   <div className="w-8 h-8">
-                    <Heart />
+                    <Heart fill={interested ? "red" : "none"} />
                   </div>
-                </div>
+                </motion.div>
                 <div className="flex justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5">
                   <p>Check this opportunity</p>
                 </div>
