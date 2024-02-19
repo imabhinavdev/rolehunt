@@ -112,7 +112,7 @@ const SideBarData = [
   },
   {
     title: "Jobs",
-    link: "#",
+    link: "/admin/jobs",
     icon: Jobs,
   },
   {

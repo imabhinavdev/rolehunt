@@ -1,3 +1,4 @@
+import { LockIcon } from "@/components/Icons";
 import React from "react";
 
 const ForgetPassword = () => {
@@ -8,7 +9,7 @@ const ForgetPassword = () => {
           <div className="grid items-center justify-center w-full grid-cols-1 text-left">
             <div>
               <div className="text-center mb-8 flex justify-center items-center text-xl ">
-                <span className="material-symbols-outlined ">lock</span>
+                <LockIcon className="w-8 h-8" />
               </div>
               <p className="text-lg  tracking-tighter text-center text-black font-bold mb-8 lg:text-xl">
                 Trouble with logging in?
