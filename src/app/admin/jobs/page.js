@@ -48,7 +48,7 @@ const AdminJobs = () => (
       </div>
       <ul className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {integrations.map((item, idx) => (
-          <li className="border rounded-lg">
+          <li className="border rounded-lg" key={idx}>
             <div className="flex items-start justify-between p-4">
               <div className="space-y-2">
                 <item.icon className="w-8 h-8 text-indigo-600" />
@@ -68,7 +68,7 @@ const AdminJobs = () => (
                 {item.active ? "Active" : "Inactive"}
               </span>
               <Link
-                href="javascript:void(0)"
+                href=""
                 className="text-indigo-600 hover:text-indigo-500 text-sm font-medium"
               >
                 View Details

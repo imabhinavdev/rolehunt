@@ -4,7 +4,7 @@ import UserSidebar from "@/components/UserSidebar";
 export default function UserLayout({ children }) {
   return (
     <>
-      <UserSidebar children={children} />
+      <UserSidebar>{children} </UserSidebar>
       {/* <TestingSidebar children={children} /> */}
     </>
   );
