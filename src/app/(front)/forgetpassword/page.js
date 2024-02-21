@@ -1,10 +1,10 @@
 import { LockIcon } from "@/components/Icons";
 import React from "react";
-
+import Link from "next/link";
 const ForgetPassword = () => {
   return (
-    <div className="flex justify-center ">
-      <div className="flex flex-col md:w-1/3 sm:w-full shadow-lg   p-8">
+    <div className="w-full  flex flex-col items-center rounded-md bg-yellow md:shadow-lg md:p-10 p-4 ">
+      <div className="flex flex-col md:w-1/3 sm:w-full shadow-lg bg-white rounded   p-8">
         <div className="  ">
           <div className="grid items-center justify-center w-full grid-cols-1 text-left">
             <div>
@@ -29,18 +29,20 @@ const ForgetPassword = () => {
           </div>
         </div>
         <div className="flex  pb-8  mb-10">
-          <a
+          <Link
             aria-describedby="tier-company"
             className="flex mt-5 items-center justify-center w-full  py-3 text-center text-white  bg-black border-2 border-black rounded-full nline-flex hover:bg-transparent hover:border-black hover:text-black focus:outline-none focus-visible:outline-black text-sm focus-visible:ring-black"
             href="#"
           >
             Send OTP
-          </a>
+          </Link>
         </div>
 
         <hr />
-        <div className=" mt-10 p-3">
-          <p className="text-xl font-medium text-center  ">Back to Login</p>
+        <div className=" mt-10 p-3 flex justify-center">
+          <Link href="#" className="text-xl  font-medium text-center  ">
+            Back to Login
+          </Link>
         </div>
       </div>
     </div>
