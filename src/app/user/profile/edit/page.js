@@ -16,7 +16,7 @@ const AddStudent = () => {
                 </label>
                 <input
                   placeholder="JohnDoe"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-500  text-sm rounded-lg block w-full p-2.5"
                   type="text"
                 />
               </div>
@@ -26,7 +26,7 @@ const AddStudent = () => {
                 </label>
                 <input
                   placeholder="email@example.com"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
                   type="email"
                 />
               </div>
@@ -38,7 +38,7 @@ const AddStudent = () => {
                 </label>
                 <input
                   placeholder="9874563210"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
                   type="text"
                 />
               </div>
@@ -46,7 +46,7 @@ const AddStudent = () => {
                 <label className="block mb-2 text-sm font-medium text-gray-900">
                   Batch
                 </label>
-                <select className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5">
+                <select className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5">
                   <option value="1">2021</option>
                   <option value="2">2022</option>
                   <option value="2">2024</option>
@@ -65,7 +65,7 @@ const AddStudent = () => {
                 </label>
                 <input
                   placeholder="https://linkedin.com/in/kishoranushka"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
                   type="text"
                 />
               </div>
@@ -75,7 +75,7 @@ const AddStudent = () => {
                 </label>
                 <input
                   placeholder="https://linkedin.com/in/kishoranushka"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
                   type="text"
                 />
               </div>
@@ -87,7 +87,7 @@ const AddStudent = () => {
                 </label>
                 <input
                   placeholder="https://linkedin.com/in/kishoranushka"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
                   type="text"
                 />
               </div>
@@ -97,7 +97,7 @@ const AddStudent = () => {
                 </label>
                 <input
                   placeholder="https://linkedin.com/in/kishoranushka"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
                   type="text"
                 />
               </div>
