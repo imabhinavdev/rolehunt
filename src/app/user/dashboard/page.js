@@ -11,9 +11,9 @@ const Userdashboard = () => {
           <div className="max-w-screen-xl ">
             <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
               <div className="flex-1 sm:hidden lg:block">
-                <img
-                  src="https://img.freepik.com/free-photo/medium-shot-woman-working-laptop_23-2149300643.jpg?w=1380&t=st=1708259282~exp=1708259882~hmac=f6f2dafe5d11543e822bf8377c4537f807b8e0e4421d4df6c5a84b197196aab3"
-                  className="md:max-w-lg sm:rounded-lg"
+                <Image
+                  className="rounded-lg"
+                  src="/images/job.jpg"
                   width={500}
                   height={500}
                   alt=""
