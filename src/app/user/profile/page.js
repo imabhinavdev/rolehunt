@@ -20,7 +20,7 @@ const Profile = () => {
               </h1>
               <Link
                 href="#"
-                className="md:px-2 sm:px-6 shadow-md  rounded-full  bg-green  text-white text-sm w-28 p-1 text-center "
+                className="md:px-2 sm:px-6 shadow-md  rounded-full  bg-yellow  text-white text-sm w-28 p-1 text-center "
               >
                 Edit Profile
               </Link>
