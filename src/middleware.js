@@ -1,30 +1,76 @@
-import { NextURL } from "next/dist/server/web/next-url";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
 
 export function middleware(request) {
-  // if (request.nextUrl.pathname == "/login") {
-  //   return NextResponse.next();
-  // } else if (request.nextUrl.pathname.includes("/_next")) {
-  //   return NextResponse.next();
-  // } else {
-  //   return NextResponse.redirect(new URL("/login", request.url));
-  // }
   const path = request.nextUrl.pathname;
-  if (path.includes("/admin")) {
-    return NextResponse.redirect(new URL("/login", request.url));
-  } else if (path.includes("/user")) {
-    return NextResponse.redirect(new URL("/login", request.url));
-  } else {
-  }
-  return NextResponse.next();
-}
+  let isCookieSet = request.cookies.get("token") || null;
 
-// for redirecting form specific page
+  let role = "";
+
+  if (isCookieSet) {
+    const cookieValue = isCookieSet.value;
+    const tokenStartIndex = cookieValue.indexOf("=") + 1;
+    const stopIndex = cookieValue.indexOf(";") - 1;
+    const jwtToken = cookieValue.substring(tokenStartIndex, stopIndex);
+    const decodedToken = jwt.decode(jwtToken);
+    role = decodedToken.role || "";
+  }
+
+  if (path.includes("/admin")) {
+    if (isCookieSet && role === "admin") {
+      return NextResponse.next();
+    } else if (isCookieSet && role === "user") {
+      return NextResponse.redirect(new URL("/user/dashboard", request.nextUrl));
+    }
+    return NextResponse.redirect(new URL("/login", request.nextUrl));
+  }
+
+  if (path.includes("/user")) {
+    if (isCookieSet && role === "user") {
+      return NextResponse.next();
+    } else if (isCookieSet && role === "admin") {
+      return NextResponse.redirect(
+        new URL("/admin/dashboard", request.nextUrl)
+      );
+    }
+    return NextResponse.redirect(new URL("/login", request.nextUrl));
+  }
+  if (path === "/login") {
+    if (isCookieSet && role === "user") {
+      return NextResponse.redirect(new URL("/user/dashboard", request.nextUrl));
+    } else if (isCookieSet && role === "admin") {
+      return NextResponse.redirect(
+        new URL("/admin/dashboard", request.nextUrl)
+      );
+    }
+    return NextResponse.next();
+  }
+  if (path === "/auth/logout") {
+    if (isCookieSet) {
+      return NextResponse.next();
+    }
+    return NextResponse.redirect(new URL("/login", request.nextUrl));
+  }
+
+  if (path === "/dashboard") {
+    if (isCookieSet && role === "user") {
+      return NextResponse.redirect(new URL("/user/dashboard", request.nextUrl));
+    } else if (isCookieSet && role === "admin") {
+      return NextResponse.redirect(
+        new URL("/admin/dashboard", request.nextUrl)
+      );
+    }
+    return NextResponse.redirect(new URL("/login", request.nextUrl));
+  }
+
+  return NextResponse.redirect(new URL("/login", request.nextUrl));
+}
 export const config = {
   matcher: [
-    // "/:path*",
-
     "/user/:path*",
+    "/login",
+    "/auth/logout",
     "/admin/:path*",
+    "/dashboard",
   ],
 };
