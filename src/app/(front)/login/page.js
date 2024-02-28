@@ -29,7 +29,7 @@ const Login = () => {
             <input
               type="email"
               required
-              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-yellow shadow-sm rounded-lg"
+              className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent    border focus:border-yellow shadow-sm rounded-lg"
             />
           </div>
           <div className="relative bg bg-white rounded">
