@@ -28,11 +28,12 @@ const Login = () => {
             <label className="font-medium">Email</label>
             <input
               type="email"
+              placeholder="abc@example.com"
               required
               className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent    border focus:border-yellow shadow-sm rounded-lg"
             />
           </div>
-          <div className="relative bg bg-white rounded">
+          <div className="relative rounded">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -41,7 +42,7 @@ const Login = () => {
               placeholder="•••••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="p-1 z-0 font-pop rounded focus:outline-none focus:border-primary w-full focus:ring focus:ring-primary"
+              className="p-1 z-0 font-pop rounded-lg outline-none border py-2  shadow-sm focus:border-primary w-full focus:ring focus:ring-primary"
             />
             <span
               onClick={togglePasswordVisibility}
