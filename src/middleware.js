@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-
+import Cookies from "js-cookie";
 export function middleware(request) {
   const path = request.nextUrl.pathname;
   let isCookieSet = request.cookies.get("token") || null;
@@ -45,12 +45,6 @@ export function middleware(request) {
     }
     return NextResponse.next();
   }
-  if (path === "/auth/logout") {
-    if (isCookieSet) {
-      return NextResponse.next();
-    }
-    return NextResponse.redirect(new URL("/login", request.nextUrl));
-  }
 
   if (path === "/dashboard") {
     if (isCookieSet && role === "user") {
@@ -62,15 +56,24 @@ export function middleware(request) {
     }
     return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
+  if (path === "/logout") {
+    if (isCookieSet) {
+      const response = NextResponse.json({
+        message: "Logout Successful",
+        success: true,
+      });
+      response.cookies.set("token", "", {
+        path: "/",
+        httpOnly: true,
+        expires: new Date(0),
+      });
+      return response;
+    }
+    return NextResponse.redirect(new URL("/login", request.nextUrl));
+  }
 
   return NextResponse.redirect(new URL("/login", request.nextUrl));
 }
 export const config = {
-  matcher: [
-    "/user/:path*",
-    "/login",
-    "/auth/logout",
-    "/admin/:path*",
-    "/dashboard",
-  ],
+  matcher: ["/user/:path*", "/login", "/admin/:path*", "/dashboard", "/logout"],
 };

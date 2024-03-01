@@ -15,8 +15,8 @@ const ForgetPassword = () => {
                 Trouble with logging in?
               </p>
               <p className="mt-2 text-md text-black ">
-                Enter your email address, phone number or username, and we
-                &apos;ll send you an OTP to get back into your account.
+                Enter your email address and we &apos;ll send you an OTP to get
+                back into your account.
               </p>
             </div>
             <div className="mt-6 w-full">
@@ -40,8 +40,8 @@ const ForgetPassword = () => {
 
         <hr />
         <div className=" mt-10 p-3 flex justify-center">
-          <Link href="#" className="text-xl  font-medium text-center  ">
-            Back to Login
+          <Link href="/" className="text-xl  font-medium text-center  ">
+            Back to Home Page
           </Link>
         </div>
       </div>

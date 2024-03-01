@@ -4,6 +4,17 @@ import AdminDashboardCard from "@/components/AdminDashboardCard";
 const AdminDashboard = () => {
   return (
     <>
+      <div className="items-start justify-between md:flex mb-4">
+        <div className="max-w-lg">
+          <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">
+            Dashboard
+          </h3>
+          <p className="text-gray-600 mt-2">
+            Manage everything at one place. You can manage the companies,
+            students, jobs and placements.
+          </p>
+        </div>
+      </div>
       <div className="grid grid-cols-1 h-full md:grid-cols-2 lg:grid-cols-4 grid-flow-row gap-y-5 gap-x-12">
         {CardData.map((data, index) => (
           <AdminDashboardCard key={index} data={data} />

@@ -31,8 +31,6 @@ export async function POST(req) {
         statusText: "Invalid email or password",
       });
     }
-    const hasss = await bcrypt.hash(password, 10);
-    console.log(hasss);
 
     const passwordMatch = await bcrypt.compare(password, data[0].password);
 

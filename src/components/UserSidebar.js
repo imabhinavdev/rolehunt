@@ -122,7 +122,7 @@ const SideBarData = [
   // },
   {
     title: "Logout",
-    link: "/user/logout",
+    link: "/logout",
     icon: Logout,
   },
 ];

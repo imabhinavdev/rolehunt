@@ -15,8 +15,6 @@ const NavBar = () => {
   const navigation = [
     { title: "Dashboard", path: "/user/dashboard" },
     { title: "About", path: "/about" },
-    { title: "Help", path: "/help" },
-    { title: "Admin", path: "/admin/dashboard" },
     { title: "Support", path: "/user/support" },
     { title: "Forget Password", path: "/forgetpassword " },
   ];
