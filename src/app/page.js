@@ -5,21 +5,21 @@ import Link from "next/link";
 const Page = () => {
   return (
     <>
-      <div className="md:mx-auto max-w-screen-xl px-4 select-none bg-white min-h-screen">
+      <div className="md:mx-auto max-w-screen-xl px-4 select-none  min-h-screen">
         <NavBar />
-        <div className="flex md:mt-20">
+        <div className="md:flex md:mt-20">
           <div className="md:w-1/2">
             <Image
-              src="/images/home.jpeg"
+              src="/images/home.png"
               alt="Work Image"
               height={600}
               width={600}
             />
           </div>
-          <div className="w-1/2 flex flex-col gap-8">
-            <h1 className="text-8xl font-bold text-left">
+          <div className="md:w-1/2 flex flex-col gap-8 mt-6 md:mt-0  md:ml-5 md:mt-8">
+            <p className="md:text-8xl text-5xl text-center   font-bold md:text-left ">
               Welcome to <span className="text-yellow">RoleHunt</span>
-            </h1>
+            </p>
             <p className="text-left text-lg">
               One stop platform for applying job in campus.
             </p>
