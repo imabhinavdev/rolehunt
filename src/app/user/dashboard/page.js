@@ -31,9 +31,9 @@ const Userdashboard = () => {
     <>
       <div>
         <section className="">
-          <div className="max-w-screen-xl bg-pink-200">
-            <div className="items-center gap-x-12 bg-green sm:px-4 md:px-0 lg:flex">
-              <div className="flex-1 sm:hidden   bg-yellow lg:block">
+          <div className="max-w-screen-xl ">
+            <div className="items-center  sm:px-4 md:px-0 lg:flex">
+              <div className="flex-1 sm:hidden md:w-72  lg:block">
                 <Image
                   className="rounded-lg h-80 w-96"
                   src="/images/jobsearch.jpeg"
@@ -42,7 +42,7 @@ const Userdashboard = () => {
                   alt=""
                 />
               </div>
-              <div className="max-w-xl  text-justify  sm:px-0  lg:max-w-2xl">
+              <div className="max-w-xl  text-justify  sm:px-0 md:mr-40 lg:max-w-2xl">
                 <p className="text-black text-3xl   font-pt sm:text-4xl">
                   One Step Closer To Your New Job
                 </p>
