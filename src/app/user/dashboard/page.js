@@ -1,9 +1,32 @@
+"use client";
+
 import React from "react";
 import JoblistCard from "@/components/JoblistCard";
 import NavBar from "@/components/Navbar";
 import Image from "next/image";
 
+import { supabase } from "@/db/supabase";
+import { useState, useEffect } from "react";
+
 const Userdashboard = () => {
+  const [fetchError, setFetchError] = useState(null);
+  const [jobs, setJobs] = useState(null);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const { data, error } = await supabase.from("jobs").select();
+      if (error) {
+        setFetchError("Could not fetch the job details");
+        setJobs(null);
+        console.log(error);
+      }
+      if (data) {
+        setJobs(data);
+        setFetchError(null);
+      }
+    };
+    fetchJobs();
+  }, []);
   return (
     <>
       <div>
@@ -40,7 +63,16 @@ const Userdashboard = () => {
           </div>
         </section>
 
-        <JoblistCard />
+        <div className="jobsSection">
+          {fetchError && <p>{fetchError}</p>}
+          {jobs && (
+            <div className="jobs">
+              {jobs.map((jobs) => (
+                <p>{jobs.title}</p>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

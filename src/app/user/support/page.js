@@ -27,41 +27,45 @@ export const Linkedin = ({ className }) => {
 
 const Support = () => {
   return (
-    <div className="font-pop shadow-lg bg-yellow bg-opacity-30 md:p-4 p-4 pb-10  ">
-      <div>
-        <p className="text-3xl text-center  font-medium">Support</p>
-        <p className="md:text-md text-gray-500 mt-5 text-justify md:text-center ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim sint a
-          fugiat vitae rem dolor eligendi natus obcaecati id exercitationem.
-        </p>
-      </div>
-      <div className="md:flex mt-10  h-72 gap-10 ">
-        <div className="  text-justify   md:w-1/2 sm:w-ful ">
-          <p className="md:text-2xl text-lg font-bold text-center  mb-4 ">
-            Generate Query
+    <div className="h-full min-h-full">
+      <div className="font-pop shadow-lg min-h-full bg-yellow  rounded-md md:p-4 p-4 md:pb-10 h-full w-full ">
+        <div className="">
+          <p className="text-3xl text-center  font-medium">Support</p>
+          <p className="md:text-md text-gray-700 mt-5 text-justify md:text-center ">
+            For any kind of query and support, you can write down your queries
+            in the generate query section or in case of any emergency, you can
+            contact us through call or whatsapp.
           </p>
-
-          <input
-            type="text"
-            placeholder="Enter your query..."
-            className="border rounded-md p-5 w-full h-2/3  shadow-lg"
-          />
         </div>
-        <div className="  text-justify mt-10 md:mt-0  md:w-1/2 sm:w-ful  ">
-          <p className="md:text-2xl text-lg font-bold text-center  mb-4">
-            Emergency Support
-          </p>
-          <div className="bg-white border  text-black rounded-md p-5 w-full h-2/3 shadow-lg  items-center">
-            <div className="flex mb-10">
-              <span className="mr-6 material-symbols-outlined">call</span>
-              <p>98745663210</p>
+        <div className="md:flex mt-10   h-72 gap-10 ">
+          <div className="  text-justify   md:w-1/2 sm:w-ful ">
+            <p className="md:text-2xl text-lg font-bold text-center  mb-4 ">
+              Generate Query
+            </p>
+            <div className="text-justify  md:mt-0  md:w-full md:h-2/3 sm:w-full  h-36 ">
+              <textarea
+                id="comment and review"
+                className="rounded-md pl-3  w-full h-full"
+                placeholder="Write your query here..."
+              ></textarea>
             </div>
-            <div className="flex  items-center gap-5">
-              <div className="w-8 h-8 ">
-                <Linkedin />
+          </div>
+          <div className="  text-justify mt-10 md:mt-0  md:w-1/2  sm:w-full  ">
+            <p className="md:text-2xl text-lg font-bold text-center  mb-4">
+              Emergency Support
+            </p>
+            <div className="bg-white border  text-black rounded-md p-5 w-full h-2/3 shadow-lg  items-center">
+              <div className="flex mb-10">
+                <span className="mr-6 material-symbols-outlined">call</span>
+                <p>98745663210</p>
               </div>
+              <div className="flex  items-center gap-5">
+                <div className="w-8 h-8 ">
+                  <Linkedin />
+                </div>
 
-              <p>98745663210</p>
+                <p>98745663210</p>
+              </div>
             </div>
           </div>
         </div>

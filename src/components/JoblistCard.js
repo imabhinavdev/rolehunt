@@ -4,24 +4,24 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 const JobListCard = () => {
   const jobs = [
-    {
-      href: "https://www.google.com/",
-      title: "UI/UX Designer",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "12/20/36",
-      salary: "50000",
-      type: "Remote",
-      location: "Mumbai",
-    },
-    {
-      href: "https://www.google.com/",
-      title: "Testing",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      date: "12/20/36",
-      salary: "10000",
-      type: "Remote",
-      location: "Mumbai",
-    },
+    // {
+    //   href: "https://www.google.com/",
+    //   title: "UI/UX Designer",
+    //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //   date: "12/20/36",
+    //   salary: "50000",
+    //   type: "Remote",
+    //   location: "Mumbai",
+    // },
+    // {
+    //   href: "https://www.google.com/",
+    //   title: "Testing",
+    //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    //   date: "12/20/36",
+    //   salary: "10000",
+    //   type: "Remote",
+    //   location: "Mumbai",
+    // },
   ];
 
   const [interested, setInterested] = useState(false);
