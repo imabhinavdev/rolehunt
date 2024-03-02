@@ -28,7 +28,7 @@ export const Linkedin = ({ className }) => {
 const Support = () => {
   return (
     <div className="h-full min-h-full">
-      <div className="font-pop shadow-lg min-h-full bg-yellow  rounded-md md:p-4 p-4 md:pb-10 h-full w-full ">
+      <div className="font-pop shadow-lg min-h-full   rounded-md md:p-4 p-4 md:pb-10 h-full w-full ">
         <div className="">
           <p className="text-3xl text-center  font-medium">Support</p>
           <p className="md:text-md text-gray-700 mt-5 text-justify md:text-center ">
@@ -40,12 +40,12 @@ const Support = () => {
         <div className="md:flex mt-10   h-72 gap-10 ">
           <div className="  text-justify   md:w-1/2 sm:w-ful ">
             <p className="md:text-2xl text-lg font-bold text-center  mb-4 ">
-              Generate Query
+              Write your query
             </p>
             <div className="text-justify  md:mt-0  md:w-full md:h-2/3 sm:w-full  h-36 ">
               <textarea
                 id="comment and review"
-                className="rounded-md pl-3  w-full h-full"
+                className="rounded-md pl-3  w-full h-full border "
                 placeholder="Write your query here..."
               ></textarea>
             </div>
