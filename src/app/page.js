@@ -10,7 +10,7 @@ const Page = () => {
         <div className="flex md:mt-20">
           <div className="md:w-1/2">
             <Image
-              src="/images/work.png"
+              src="/images/home.jpeg"
               alt="Work Image"
               height={600}
               width={600}
@@ -18,7 +18,7 @@ const Page = () => {
           </div>
           <div className="w-1/2 flex flex-col gap-8">
             <h1 className="text-8xl font-bold text-left">
-              Welcome to RoleHunt
+              Welcome to <span className="text-yellow">RoleHunt</span>
             </h1>
             <p className="text-left text-lg">
               One stop platform for applying job in campus.
