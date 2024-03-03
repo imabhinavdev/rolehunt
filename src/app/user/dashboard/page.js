@@ -32,17 +32,17 @@ const Userdashboard = () => {
       <div>
         <section className="">
           <div className="max-w-screen-xl ">
-            <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
-              <div className="flex-1 sm:hidden lg:block">
+            <div className="items-center  sm:px-4 md:px-0 lg:flex">
+              <div className="flex-1 sm:hidden md:w-72  lg:block">
                 <Image
-                  className="rounded-lg"
-                  src="/images/job.jpg"
+                  className="rounded-lg h-80 w-96"
+                  src="/images/jobsearch.jpeg"
                   width={500}
                   height={500}
                   alt=""
                 />
               </div>
-              <div className="max-w-xl    sm:px-0  lg:max-w-2xl">
+              <div className="max-w-xl  text-justify  sm:px-0 md:mr-40 lg:max-w-2xl">
                 <p className="text-black text-3xl   font-pt sm:text-4xl">
                   One Step Closer To Your New Job
                 </p>
@@ -67,8 +67,8 @@ const Userdashboard = () => {
           {fetchError && <p>{fetchError}</p>}
           {jobs && (
             <div className="jobs">
-              {jobs.map((jobs) => (
-                <p>{jobs.title}</p>
+              {jobs.map((jobs, key) => (
+                <p key={key}>{jobs.title}</p>
               ))}
             </div>
           )}
