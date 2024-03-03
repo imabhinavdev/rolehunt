@@ -11,6 +11,7 @@ import {
 } from "@/components/Icons";
 import SideBarList from "@/components/SideBar/SideBarList";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
 
 const UserSidebar = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -18,9 +19,28 @@ const UserSidebar = ({ children }) => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  const handleLogout = async () => {
+    const fetchData = await fetch("/api/auth/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const response = await fetchData.json();
+    if (response.success) {
+      toast.success("Logout Successfull");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } else {
+      toast.error("Logout Failed");
+    }
+  };
 
   return (
     <>
+      <ToastContainer />
+
       <div className="font-pop">
         <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 font-pop">
           <div className="px-3 py-3 lg:px-5 lg:pl-3">
@@ -86,6 +106,19 @@ const UserSidebar = ({ children }) => {
                   Icon={data.icon}
                 />
               ))}
+              <motion.li
+                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Link
+                  onClick={handleLogout}
+                  href=""
+                  className=" flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group "
+                >
+                  <Logout className="w-5" />
+                  <span className="ms-3">Logout</span>
+                </Link>
+              </motion.li>
             </ul>
           </div>
         </aside>
@@ -120,9 +153,4 @@ const SideBarData = [
   //   link: "/user/users",
   //   icon: Users,
   // },
-  {
-    title: "Logout",
-    link: "/logout",
-    icon: Logout,
-  },
 ];

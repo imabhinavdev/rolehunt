@@ -56,25 +56,21 @@ export function middleware(request) {
     }
     return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
-  if (path === "/logout") {
+  if (path.includes("/logout")) {
     if (isCookieSet) {
-      const response = NextResponse.json({
-        message: "Logout Successful",
-        success: true,
-      });
-      response.cookies.set("token", "", {
-        path: "/",
-        httpOnly: true,
-        expires: new Date(0),
-        domain:process.env.DOMAIN
-      });
-      return response;
+      return NextResponse.next();
     }
+
     return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
-
   return NextResponse.redirect(new URL("/login", request.nextUrl));
 }
 export const config = {
-  matcher: ["/user/:path*", "/login", "/admin/:path*", "/dashboard", "/logout"],
+  matcher: [
+    "/user/:path*",
+    "/login",
+    "/admin/:path*",
+    "/dashboard",
+    "/auth/logout",
+  ],
 };
