@@ -1,28 +1,20 @@
 "use client";
 import { Heart, Rupees } from "@/components/Icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 const JobListCard = () => {
-  const jobs = [
-    // {
-    //   href: "https://www.google.com/",
-    //   title: "UI/UX Designer",
-    //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    //   date: "12/20/36",
-    //   salary: "50000",
-    //   type: "Remote",
-    //   location: "Mumbai",
-    // },
-    // {
-    //   href: "https://www.google.com/",
-    //   title: "Testing",
-    //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    //   date: "12/20/36",
-    //   salary: "10000",
-    //   type: "Remote",
-    //   location: "Mumbai",
-    // },
-  ];
+  const [jobs, setJobs] = useState([]);
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const fetchedData = await fetch("/api/admin/jobs");
+      const data = await fetchedData.json();
+      if (data) {
+        console.log(data);
+        setJobs(data);
+      }
+    };
+    fetchJobs();
+  }, []);
 
   const [interested, setInterested] = useState(false);
   const handleInsterested = () => {
@@ -51,7 +43,7 @@ const JobListCard = () => {
                         {item.title}
                       </h3>
                       <p className="text-gray-500 mt-2 font-normal text-wrap  pr-2">
-                        {item.desc}
+                        {item.description}
                       </p>
                     </div>
                     <div className="mt-5 space-y-4 text-sm sm:mt-0 sm:space-y-2">

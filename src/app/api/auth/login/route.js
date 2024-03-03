@@ -21,6 +21,7 @@ export async function POST(req) {
       .eq("email", email);
 
     if (error) {
+      console.log(error)
       return NextResponse.error({ status: 500, statusText: error.message });
     }
 
