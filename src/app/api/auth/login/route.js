@@ -49,6 +49,7 @@ export async function POST(req) {
       sameSite: "strict",
       path: "/",
       maxAge: 60 * 60 * 24 * 7, // 7 days (adjust as needed)
+      domain: process.env.DOMAIN,
     });
 
     const response = NextResponse.json({ success: true });

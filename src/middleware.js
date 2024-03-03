@@ -66,6 +66,7 @@ export function middleware(request) {
         path: "/",
         httpOnly: true,
         expires: new Date(0),
+        domain:process.env.DOMAIN
       });
       return response;
     }
