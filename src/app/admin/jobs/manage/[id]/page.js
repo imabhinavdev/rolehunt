@@ -5,7 +5,7 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-const AddJobs = () => {
+const ManageJobs = ({ params }) => {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [salary, setSalary] = useState("");
@@ -13,34 +13,52 @@ const AddJobs = () => {
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
   const [criteria, setCritera] = useState("");
-  const [is_fulltime, setIs_fulltime] = useState(false);
+  const [is_fulltime, setIs_fulltime] = useState("");
   const [inhand_salary, setInhand_salary] = useState("");
-  const [is_open, setIs_open] = useState(false);
+  const [is_open, setIs_open] = useState("");
   const [date_of_coming, setDateofComing] = useState("");
-  const [allCompanies, setAllCompanies] = useState("");
+  const [allCompanies, setCompanies] = useState("");
   const [company, setCompany] = useState(0);
-  const [is_active, setIs_active] = useState(false);
+  const [is_active, setIs_active] = useState("");
   const [loading, setLoading] = useState(true);
+  const id = params.id;
 
   useEffect(() => {
     const fetchJob = async () => {
-      const res = await fetch(`/api/admin/company`);
+      const res = await fetch(`/api/admin/jobs?id=${id}`);
       const data = await res.json();
       if (data) {
-        setAllCompanies(data);
-        setCompany(data[0].id);
+        let { jobData } = data;
+        jobData = jobData[0];
+        setTitle(jobData.title);
+        setSalary(jobData.salary);
+        setTechnologies(jobData.technologies);
+        setDescription(jobData.description);
+        setLocation(jobData.location);
+        setCritera(jobData.criteria);
+        setIs_fulltime(jobData.is_fulltime);
+        setInhand_salary(jobData.inhand_salary);
+        setIs_open(jobData.is_open);
+        setDateofComing(jobData.date_of_coming);
+        setIs_active(jobData.is_active);
+        setCompany(jobData.company);
+        setLoading(false);
+        const { companyData } = data;
+        setCompanies(companyData);
       }
     };
     fetchJob();
-  }, []);
+  }, [id]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const dataToSend = {
+      id,
       title,
       salary,
-      inhand_salary: salary,
       technologies,
+      inhand_salary: salary,
       description,
       location,
       criteria,
@@ -51,21 +69,17 @@ const AddJobs = () => {
       is_active,
       company,
     };
-    console.log(dataToSend);
-    try {
-      const res = await fetch("/api/admin/jobs", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToSend),
-      });
-      const data = await res.json();
-      if (data.success) {
-        toast.success("Job Added Successfully");
+    const res = await fetch(`/api/admin/jobs`, {
+      method: "PUT",
+      body: JSON.stringify(dataToSend),
+    });
+    const result = await res.json();
+    if (result) {
+      toast.success("Job Updated Successfully");
+      setTimeout(() => {
         router.push("/admin/jobs");
-      }
-    } catch (error) {
+      }, 1500);
+    } else {
       toast.error("Something went wrong");
     }
   };
@@ -77,7 +91,7 @@ const AddJobs = () => {
         <div className="w-full bg-white rounded-lg shadow border md:mt-0  xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-              Add Job
+              Manage Jobs
             </p>
             <form onSubmit={handleSubmit}>
               <div className="flex gap-2">
@@ -109,14 +123,13 @@ const AddJobs = () => {
                   <select
                     name="company"
                     id="company"
-                    value={company}
-                    onChange={(e) => setCompany(e.target.value)}
+                    defaultValue={company}
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
                   >
                     {allCompanies &&
-                      allCompanies.map((comp) => (
-                        <option key={comp.id} value={comp.id}>
-                          {comp.name}
+                      allCompanies.map((company) => (
+                        <option key={company.id} value={company.id}>
+                          {company.name}
                         </option>
                       ))}
                   </select>
@@ -152,20 +165,7 @@ const AddJobs = () => {
                   onChange={setDescription}
                 />
               </div>
-              <div className="py-2 flex items-center gap-2">
-                <label htmlFor="date">Date of Coming</label>
-
-                <input
-                  type="date"
-                  name=" date_of_coming"
-                  id="date"
-                  value={date_of_coming}
-                  onChange={(e) => setDateofComing(e.target.value)}
-                  required
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg  p-2.5"
-                />
-              </div>
-              <div className="flex gap-2 justify-between py-2">
+              <div className="flex gap-2 justify-between">
                 <div className="">
                   <input
                     type="checkbox"
@@ -201,7 +201,7 @@ const AddJobs = () => {
                 className="w-full bg-yellow hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-black"
                 type="submit"
               >
-                Post Job
+                Update Job
               </button>
             </form>
           </div>
@@ -211,4 +211,4 @@ const AddJobs = () => {
   );
 };
 
-export default AddJobs;
+export default ManageJobs;
