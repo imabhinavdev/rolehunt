@@ -22,9 +22,9 @@ const AboutPage = () => {
             What is RoleHunt?
           </p>
           <p className="mb-4">
-            RoleHunt is not just a job portal; it's your personalized career
-            companion. This platform serves as a centralized hub for all things
-            career-related, offering a plethora of features designed to
+            RoleHunt is not just a job portal; it&apos;s your personalized
+            career companion. This platform serves as a centralized hub for all
+            things career-related, offering a plethora of features designed to
             streamline your job search and elevate your professional trajectory.
           </p>
           <p className="font-bold text-black font-pop text-xl mb-2">
@@ -37,16 +37,16 @@ const AboutPage = () => {
                   Explore Diverse Opportunities:
                 </span>{" "}
                 Dive into a vast array of job opportunities from leading
-                companies. Whether you're seeking internships, entry-level
+                companies. Whether you&apos;re seeking internships, entry-level
                 positions, or advanced roles, RoleHunt caters to all career
                 stages.
               </li>
               <li className="mb-4">
                 <span className="font-bold">Detailed Company Insights:</span>{" "}
-                Gain valuable insights into the companies you're interested in.
-                From offered roles and packages to company culture and growth
-                opportunities, RoleHunt provides a 360-degree view to help you
-                make informed decisions.
+                Gain valuable insights into the companies you&apos;re interested
+                in. From offered roles and packages to company culture and
+                growth opportunities, RoleHunt provides a 360-degree view to
+                help you make informed decisions.
               </li>
               <li className="mb-4">
                 <span className="font-bold">Customized Student Profiles:</span>{" "}
@@ -76,9 +76,9 @@ const AboutPage = () => {
           </p>
           <p className="mb-4">
             By accessing RoleHunt, you open the door to a world of
-            possibilities. This platform is more than just a job search; it's a
-            catalyst for your professional growth. As you navigate through
-            diverse opportunities, seize the chance to shape your career
+            possibilities. This platform is more than just a job search;
+            it&apos;s a catalyst for your professional growth. As you navigate
+            through diverse opportunities, seize the chance to shape your career
             trajectory and make meaningful strides towards your goals.
           </p>
         </div>
