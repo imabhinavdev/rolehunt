@@ -33,8 +33,9 @@ const Login = () => {
 
       if (data.success) {
         successToast();
-        router.push("/dashboard");
-        // location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
       } else {
         throw new Error("Login failed");
       }
