@@ -1,7 +1,22 @@
+"use client";
 import { Github, Leetcode, Linkedin } from "@/components/Icons";
+import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
 const Profile = () => {
+  const [name, setName] = useState([]);
+  useEffect(() => {
+    const fetchName = async () => {
+      const fetchedData = await fetch("/api/users/profile");
+      const data = await fetchedData.json();
+      if (data) {
+        console.log(data);
+        setName(data);
+      }
+    };
+    fetchName();
+  }, []);
+
   return (
     <div className="w-full  ">
       <div className="flex  w-full flex-col shadow-md items-center rounded-md border md:flex-row">
@@ -19,15 +34,15 @@ const Profile = () => {
                 Anushka Kishor
               </h1>
               <Link
-                href="#"
+                href="/user/profile/edit"
                 className="md:px-2 sm:px-6 shadow-md  rounded-full  bg-yellow  text-white text-sm w-28 p-1 text-center "
               >
                 Edit Profile
               </Link>
             </div>
-            <p className="mt-3 text-lg text-gray-600">
+            {/* <p className="mt-3 text-lg text-gray-600">
               Developer by profession and Designer by passion
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

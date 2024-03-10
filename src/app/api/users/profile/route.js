@@ -12,8 +12,8 @@ export async function GET() {
 export async function POST(req) {
   const {
     email,
-    enrollment,
-    batch,
+    // enrollment,
+    // batch,
     branch,
     cgpa,
     resume,

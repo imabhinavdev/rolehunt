@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { AllCompanies } from "@/data/Companies";
+// import { AllCompanies } from "@/data/Companies";
 import Link from "next/link";
 const AdminCompany = () => {
   //useeffect function to fetch data from "/api/admin/company" and set the data in useState
