@@ -46,9 +46,9 @@ const CompanyDetails = ({ params }) => {
         setIs_active(jobData.is_active);
         setCompany(jobData.company);
 
-        const selectedCompany = allCompanies.find(
-          (company) => company.id === jobData.company
-        );
+        // const selectedCompany = allCompanies.find(
+        //   (company) => company.id === jobData.company
+        // );
 
         // fetchCompanyData(jobData.company);
         // console.log(selectedCompany);
