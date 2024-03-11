@@ -3,7 +3,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-// import JoblistCard from "@/components/JoblistCard";
+import JoblistCard from "@/components/JoblistCard";
 import TechnologyCard from "@/components/TechnologyCard";
 
 const CompanyDetails = ({ params }) => {
