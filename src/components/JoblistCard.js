@@ -1,15 +1,22 @@
 "use client";
 import { Heart, Rupees } from "@/components/Icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-const JobListCard = () => {
+import { useState } from "react";
+import Link from "next/link";
+
+const JobListCard = ({ param }) => {
+  // console.log(param);
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
     const fetchJobs = async () => {
-      const fetchedData = await fetch("/api/admin/jobs");
+      const fetchedData = await fetch("/api/users/jobs");
       const data = await fetchedData.json();
       if (data) {
         console.log(data);
+        data.forEach((element) => {
+          console.log(element.id);
+        });
         setJobs(data);
       }
     };
@@ -39,10 +46,10 @@ const JobListCard = () => {
                 <div>
                   <div className="justify-between sm:flex ">
                     <div className="flex-1">
-                      <h3 className="text-2xl  font-bold text-black ">
+                      <h3 className="md:text-2xl text-xl  font-bold text-black ">
                         {item.title}
                       </h3>
-                      <p className="text-gray-500 mt-2 font-normal text-wrap  pr-2">
+                      <p className="text-gray-500 mt-2 text-base md:font-normal text-wrap  pr-2">
                         {item.description}
                       </p>
                     </div>
@@ -116,7 +123,9 @@ const JobListCard = () => {
                   </div>
                 </motion.div>
                 <div className="flex justify-between items-center  md:w-80 w-full bg-yellow p-2 px-4 text-center rounded-full mt-5">
-                  <p>Check this opportunity</p>
+                  <Link href={`/user/companydetails/${item.id}`}>
+                    Check this opportunity
+                  </Link>
                 </div>
               </div>
             </li>
