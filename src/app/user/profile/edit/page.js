@@ -15,7 +15,7 @@ const AddStudent = () => {
                   Email
                 </label>
                 <input
-                  placeholder="JohnDoe"
+                  placeholder="email@example.com"
                   className="bg-gray-50 border border-gray-300 text-gray-500  text-sm rounded-lg block w-full p-2.5"
                   type="text"
                 />
@@ -25,7 +25,7 @@ const AddStudent = () => {
                   Enrollment
                 </label>
                 <input
-                  placeholder="email@example.com"
+                  placeholder="0187CS211033"
                   className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
                   type="email"
                 />
@@ -52,6 +52,19 @@ const AddStudent = () => {
                   <option value="2">2024</option>
                   <option value="2">2025</option>
                 </select>
+              </div>
+            </div>
+
+            <div>
+              <div className="w-1/2">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  CGPA
+                </label>
+                <input
+                  placeholder="8.7"
+                  className="bg-gray-50 border border-gray-300 text-gray-600 text-sm rounded-lg block w-full p-2.5"
+                  type="text"
+                />
               </div>
             </div>
 
