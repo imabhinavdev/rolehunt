@@ -10,7 +10,10 @@ const Input = ({
 }) => {
   return (
     <>
-      <label className="block mb-2 text-sm font-medium text-gray-900">
+      <label
+        className="block mb-2 text-sm font-medium text-gray-900"
+        htmlFor={label}
+      >
         {label}
       </label>
       <input
@@ -19,6 +22,7 @@ const Input = ({
         type={type}
         name={name}
         value={value}
+        id={label}
         required
         onChange={(e) => onChange(e.target.value)}
       />

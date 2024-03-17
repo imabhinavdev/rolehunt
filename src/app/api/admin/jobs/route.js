@@ -76,7 +76,7 @@ export async function POST(req) {
     },
   ]);
   if (error) {
-    console.log(error)
+    console.log(error);
     return NextResponse.error(error.message);
   }
   return NextResponse.json({ success: true });
