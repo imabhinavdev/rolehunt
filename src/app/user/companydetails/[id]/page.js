@@ -3,63 +3,63 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import JoblistCard from "@/components/JoblistCard";
 import TechnologyCard from "@/components/TechnologyCard";
 
 const CompanyDetails = ({ params }) => {
-  const router = useRouter();
   const [title, setTitle] = useState("");
-  const [salary, setSalary] = useState("");
-  const [technologies, setTechnologies] = useState("");
   const [description, setDescription] = useState("");
-  const [location, setLocation] = useState("");
-  const [criteria, setCritera] = useState("");
-  const [is_fulltime, setIs_fulltime] = useState("");
-  const [inhand_salary, setInhand_salary] = useState("");
-  const [is_open, setIs_open] = useState("");
-  const [date_of_coming, setDateofComing] = useState("");
-  const [allCompanies, setCompanies] = useState("");
-  const [company, setCompany] = useState(0);
-  const [is_active, setIs_active] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [companytitle, setCompanyTitle] = useState("");
+  const [companydesc, setCompanyDesc] = useState("");
+  const [companymis, setCompanymission] = useState("");
+  const [companyvis, setCompanyvision] = useState("");
+  const [companySize, setCompanySize] = useState("");
+  const [companyNativeCountry, setCompanyNativeCountry] = useState("");
+  const [companyHeadquarter, setCompanyHeadquarter] = useState("");
+  const [inhandsalary, setInhandSalary] = useState("");
+  const [criteria, setCriteria] = useState("");
+  const [dateOfComing, setDateOfComing] = useState(null);
+  const [category, setCategory] = useState("");
+  const [offeredlocation, setOfferedLocation] = useState("");
+  const [packageOferred, setPackageOffered] = useState("");
+  const [technology, setTechnology] = useState("");
   const id = params.id;
 
   useEffect(() => {
     const fetchJob = async () => {
       const res = await fetch(`/api/users/jobs?id=${id}`);
       const data = await res.json();
+      console.log(data);
 
       if (data) {
         let { jobData } = data;
         jobData = jobData[0];
 
         setTitle(jobData.title);
-        setSalary(jobData.salary);
-        setTechnologies(jobData.technologies);
         setDescription(jobData.description);
-        setLocation(jobData.location);
-        setCritera(jobData.criteria);
-        setIs_fulltime(jobData.is_fulltime);
-        setInhand_salary(jobData.inhand_salary);
-        setIs_open(jobData.is_open);
-        setDateofComing(jobData.date_of_coming);
-        setIs_active(jobData.is_active);
-        setCompany(jobData.company);
+        setCompanyTitle(jobData.company.name);
+        setCompanyDesc(jobData.company.description);
+        setCompanymission(jobData.company.mission);
+        setCompanyvision(jobData.company.vision);
+        setCompanySize(jobData.company.size);
+        setCompanyNativeCountry(jobData.company.country);
+        setCompanyHeadquarter(jobData.company.location);
+        setInhandSalary(jobData.inhand_salary);
+        setCriteria(jobData.criteria);
+        setDateOfComing(jobData.date_of_coming);
+        setOfferedLocation(jobData.location);
+        setPackageOffered(jobData.salary);
+        setTechnology(jobData.technologies);
 
-        // const selectedCompany = allCompanies.find(
-        //   (company) => company.id === jobData.company
-        // );
-
-        // fetchCompanyData(jobData.company);
-        // console.log(selectedCompany);
-
-        // setLoading(false);
-        // const { companyData } = data;
-        // setCompanies(companyData);
+        const category = jobData.is_fulltime;
+        if (category == true) {
+          setCategory("fulltime");
+        } else {
+          setCategory("internship");
+        }
       }
     };
     fetchJob();
-  }, [id, allCompanies]);
+  }, [id]);
 
   return (
     <div className="font-pt ">
@@ -70,22 +70,29 @@ const CompanyDetails = ({ params }) => {
         </div>
         <div className="shadow-md rounded-md bg-blue mt-5  p-5">
           <p className="font-bold text-xl  ">Profile Description : </p>
-          <p className="mt-4 text-justify  rounded-md ">{description}</p>
+          <p className="mt-4 text-justify bg-white shadow-md p-3 rounded-md ">
+            {description}
+          </p>
         </div>
         <div className="bg-blue shadow-md rounded-md  mt-5  p-5">
           <div className="flex items-center  ">
             <p className="font-bold text-xl ">Technologies Required : </p>
           </div>
-          <div className=" mt-5">
-            <div className="flex gap-10 ">
-              <TechnologyCard />
-              <TechnologyCard />
-              <TechnologyCard />
+          <div className=" w-full mt-5">
+            <div className="w-full ">
+              <TechnologyCard technology={technology} />
             </div>
           </div>
         </div>
 
-        <PackageOferred />
+        <PackageOferred
+          criteria={criteria}
+          category={category}
+          location={offeredlocation}
+          arrival={dateOfComing}
+          inhand={inhandsalary}
+          packageOferred={packageOferred}
+        />
         {/* <PackageOferred /> */}
       </div>
 
@@ -96,43 +103,29 @@ const CompanyDetails = ({ params }) => {
       <div className=" mt-16 rounded-md ">
         <div className="flex items-center px-5 ">
           <p className="font-bold text-xl mr-10">Company Name : </p>
-          <p className="bg-blue inline-block p-5 rounded-md w-1/2">
-            {/* {selectedCompany?.name} */}
+          <p className="bg-blue inline-block p-5  rounded-md w-1/2">
+            {companytitle}
           </p>
         </div>
         <div className="shadow-md rounded-md bg-blue mt-5  p-5">
-          <p className="font-bold text-xl">Company Description : </p>
-          <p className="mt-4 text-justify  rounded-md">{description}</p>
+          <p className="font-bold text-xl ">Company Description : </p>
+          <p className="mt-4 text-justify bg-white shadow-md p-3 rounded-md">
+            {companydesc}
+          </p>
         </div>
 
-        <div className="md:flex md:gap-10 mt-10">
-          <div className="  text-justify md:py-5">
-            <p className="text-2xl font-bold text-center  mb-4">Mission</p>
+        <div className="w-full  text-center md:flex mt-10 md:justify-center">
+          <div className=" md:flex md:gap-10 justify-around inline w-3/4 ">
+            <div className="  text-justify md:py-5">
+              <p className="text-2xl font-bold text-center  mb-4">Mission</p>
 
-            <p className="bg-blue rounded-md p-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              cupiditate assumenda non. Enim sequi facilis illo unde vel
-              deleniti voluptatibus eveniet harum consequuntur autem quisquam
-              dolore molestiae maiores iusto consequatur delectus temporibus
-              consectetur dicta non maxime, porro ex illum fugiat voluptatem.
-              Eos voluptates quia, odit cum veritatis provident sed vero,
-              accusantium minima ipsa ipsam soluta, sunt quos sequi ea dolore.
-              Nihil vel alias dolores temporibus sit quidem. Ea, sint a?
-            </p>
-          </div>
-          <div className="text-justify md:py-5 mt-5 md:mt-0">
-            <p className="text-2xl font-bold text-center mb-4 ">Vision</p>
-            <div>
-              <p className=" bg-blue rounded-md p-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-                cupiditate assumenda non. Enim sequi facilis illo unde vel
-                deleniti voluptatibus eveniet harum consequuntur autem quisquam
-                dolore molestiae maiores iusto consequatur delectus temporibus
-                consectetur dicta non maxime, porro ex illum fugiat voluptatem.
-                Eos voluptates quia, odit cum veritatis provident sed vero,
-                accusantium minima ipsa ipsam soluta, sunt quos sequi ea dolore.
-                Nihil vel alias dolores temporibus sit quidem. Ea, sint a?
-              </p>
+              <p className="bg-blue rounded-md p-5">{companymis}</p>
+            </div>
+            <div className="text-justify md:py-5 mt-5 md:mt-0">
+              <p className="text-2xl font-bold text-center mb-4 ">Vision</p>
+              <div>
+                <p className=" bg-blue rounded-md p-5">{companyvis}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -140,19 +133,19 @@ const CompanyDetails = ({ params }) => {
         <div className="flex items-center  px-5 mt-5 ">
           <p className="font-bold md:text-xl mr-10">Native Country : </p>
           <p className="bg-blue inline-block md:p-5 p-2 rounded-md w-1/2">
-            XYZ{" "}
+            {companyNativeCountry}
           </p>
         </div>
         <div className="flex items-center px-5 mt-5 ">
-          <p className="font-bold md:text-xl mr-10">Headquarter : </p>
+          <p className="font-bold md:text-xl mr-16">Headquarter : </p>
           <p className="bg-blue inline-block md:p-5 p-2 rounded-md w-1/2">
-            XYZ{" "}
+            {companyHeadquarter}
           </p>
         </div>
         <div className="flex items-center px-5 mt-5 ">
-          <p className="font-bold md:text-xl mr-10">Company Size : </p>
+          <p className="font-bold md:text-xl mr-12">Company Size : </p>
           <p className="bg-blue inline-block md:p-5 p-2 rounded-md w-1/2">
-            XYZ{" "}
+            {companySize}
           </p>
         </div>
       </div>
@@ -160,7 +153,8 @@ const CompanyDetails = ({ params }) => {
       <div className="text-4xl text-center mt-20 mb-10 rounded-md shadow-md p-10 ">
         <p className="font-bold">
           We wish you the{" "}
-          <span className="text-yellow font-pop">Brightest Future</span> ahead
+          <span className="text-yellow/50 font-pop">Brightest Future</span>{" "}
+          ahead
         </p>
         <p className="text-center text-sm  ml-72  mt-5">- Team RoleHunt</p>
       </div>
@@ -173,31 +167,31 @@ const CompanyDetails = ({ params }) => {
 
 export default CompanyDetails;
 
-const PackageOferred = () => {
+const PackageOferred = (props) => {
   const features = [
     {
       title: "Package Offered",
-      desc: "10 LPA",
+      desc: props.packageOferred,
     },
     {
       title: "Location Offered",
-      desc: "Hyderabad",
+      desc: props.location,
     },
     {
       title: "Date of arrival to college",
-      desc: "24/02/2024",
+      desc: props.arrival,
     },
     {
       title: "Inhand Salary",
-      desc: "50000",
+      desc: props.inhand,
     },
     {
       title: "Criteria",
-      desc: "More than 8 CGPA",
+      desc: props.criteria,
     },
     {
       title: "Category",
-      desc: "Fulltime",
+      desc: props.category,
     },
   ];
 
