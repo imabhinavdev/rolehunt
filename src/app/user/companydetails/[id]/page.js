@@ -153,8 +153,7 @@ const CompanyDetails = ({ params }) => {
       <div className="text-4xl text-center mt-20 mb-10 rounded-md shadow-md p-10 ">
         <p className="font-bold">
           We wish you the{" "}
-          <span className="text-yellow/50 font-pop">Brightest Future</span>{" "}
-          ahead
+          <span className="text-yellow font-pop">Brightest Future</span> ahead
         </p>
         <p className="text-center text-sm  ml-72  mt-5">- Team RoleHunt</p>
       </div>
