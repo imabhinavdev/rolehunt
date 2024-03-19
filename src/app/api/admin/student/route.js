@@ -7,14 +7,19 @@ export async function GET(req) {
   if (id) {
     const { data, error } = await supabase
       .from("students")
-      .select("*")
-      .eq("id", id);
+      .select("*,users(name,mobile,is_active)")
+      .eq("enrollment", id.toUpperCase());
     if (error) {
-      return NextResponse.error(error.message);
+      return NextResponse.json(
+        { message: error.message, error: error.code },
+        { status: 500 }
+      );
     }
     return NextResponse.json(data);
   } else {
-    const { data, error } = await supabase.from("students").select("*");
+    const { data, error } = await supabase
+      .from("students")
+      .select("*,users(name,mobile,is_active)");
     if (error) {
       return NextResponse.error(error.message);
     }
@@ -27,21 +32,8 @@ export async function GET(req) {
 //students has email as primary which is used as foreign key in users table, so add student first in user table then in student table
 // user table has name,email,password,role, is_active
 export async function POST(req) {
-  const {
-    email,
-    enrollment,
-    batch,
-    branch,
-    cgpa,
-    resume,
-    linkedin,
-    github,
-    other_links,
-    is_active,
-    name,
-    mobile,
-    role,
-  } = await req.json();
+  const { email, enrollment, batch, branch, is_active, name, mobile } =
+    await req.json();
   const password = await bcrypt.hash(enrollment, 10);
   const { data, error } = await supabase.from("users").insert([
     {
@@ -49,12 +41,17 @@ export async function POST(req) {
       email,
       password,
       mobile,
-      role,
+      role: "user",
       is_active,
     },
   ]);
   if (error) {
-    return NextResponse.error(error.message);
+    console.log("error", error);
+    return NextResponse.json({
+      error: true,
+      message: error.message,
+      alreadyExists: error.code === "23505" ? true : false,
+    });
   }
   const { data1, error1 } = await supabase.from("students").insert([
     {
@@ -62,20 +59,17 @@ export async function POST(req) {
       enrollment,
       batch,
       branch,
-      cgpa,
-      resume,
-      linkedin,
-      github,
-      other_links,
       is_active,
     },
   ]);
   if (error1 && data) {
     await supabase.from("users").delete().eq("email", email);
-    return NextResponse.error(error1.message);
+    console.log("error1", error1);
+    return NextResponse.json({ error: error1.message }, { status: 500 });
   }
   if (error1) {
-    return NextResponse.error(error1.message);
+    await supabase.from("users").delete().eq("email", email);
+    return NextResponse.json({ error: error1.message }, { status: 500 });
   }
   return NextResponse.json({ success: true });
 }
@@ -94,27 +88,14 @@ export async function DELETE(req) {
 }
 // PUT Function to update student
 export async function PUT(req) {
-  const {
-    email,
-    enrollment,
-    batch,
-    branch,
-    cgpa,
-    resume,
-    linkedin,
-    github,
-    other_links,
-    is_active,
-    name,
-    mobile,
-    role,
-  } = await req.json();
+  const { email, enrollment, batch, branch, is_active, name, mobile } =
+    await req.json();
   const { data, error } = await supabase
     .from("users")
     .update({
       name,
       mobile,
-      role,
+      role: "user",
       is_active,
     })
     .eq("email", email);
@@ -127,11 +108,6 @@ export async function PUT(req) {
       enrollment,
       batch,
       branch,
-      cgpa,
-      resume,
-      linkedin,
-      github,
-      other_links,
       is_active,
     })
     .eq("email", email);

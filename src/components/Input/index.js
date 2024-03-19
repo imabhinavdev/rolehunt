@@ -4,9 +4,10 @@ const Input = ({
   placeholder = "",
   type = "text",
   value = "",
-  onChange = {},
+  onChange = null,
   label = "",
   name = "",
+  ...rest
 }) => {
   return (
     <>
@@ -24,6 +25,7 @@ const Input = ({
         value={value}
         id={label}
         required
+        {...rest}
         onChange={(e) => onChange(e.target.value)}
       />
     </>

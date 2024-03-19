@@ -1,28 +1,45 @@
 "use client";
 import Input from "@/components/Input";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { Eye, EyeOff } from "@/components/Icons";
-
-const AddStudent = () => {
+const AddStudent = ({ params }) => {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-
   const [mobile, setMobile] = useState("");
   const [batch, setBatch] = useState("");
+  const [password, setPassword] = useState("");
   const [branch, setBranch] = useState("");
   const [enrollment, setEnrollment] = useState("");
   const [is_active, setIsActive] = useState(true);
+
+  useEffect(() => {
+    const initFetch = async () => {
+      const res = await fetch(`/api/admin/student?id=${params.id}`);
+      let data = await res.json();
+      if (data.error) {
+        toast.error("Something went wrong! Please try again later.");
+      }
+      data = data[0];
+      setName(data.users.name);
+      setEmail(data.email);
+      setMobile(data.users.mobile);
+      setBatch(data.batch);
+      setBranch(data.branch);
+      setEnrollment(data.enrollment);
+      setIsActive(data.is_active);
+    };
+    initFetch();
+  }, [params.id]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const submitData = async () => {
       setEnrollment(enrollment.toUpperCase());
       const response = await fetch("/api/admin/student", {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify({
           name,
           email,
@@ -37,31 +54,25 @@ const AddStudent = () => {
         },
       });
       const data = await response.json();
-      if (data.error) {
-        if (data.alreadyExists) {
-          toast.error(
-            "Student with this email or mobile number or enrollment already exists"
-          );
-        } else {
-          toast.error("Something went wrong! Please try again later.");
-        }
-      } else {
-        toast.success("Student Added Successfully");
+      if (!data) {
+        toast.success("Student Updated Successfully");
         setName("");
         setEmail("");
         setMobile("");
         setBatch("");
+        setPassword("");
         setBranch("");
         setEnrollment("");
         setTimeout(() => {
           router.push("/admin/students");
         }, 1000);
+      } else {
+        toast.error(
+          "Student with this email or mobile number or enrollment already exists"
+        );
       }
     };
     submitData();
-  };
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
   };
   return (
     <div>
@@ -70,7 +81,7 @@ const AddStudent = () => {
         <div className="w-full bg-white rounded-lg shadow border md:mt-0  xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-              Add Student
+              Manage Student
             </p>
             <div className="flex gap-2">
               <div className="w-1/2">
@@ -87,6 +98,7 @@ const AddStudent = () => {
                   label="Email"
                   name="email"
                   value={email}
+                  autocomplete="off"
                   placeholder="abc@example.com"
                   onChange={setEmail}
                 />
@@ -132,7 +144,25 @@ const AddStudent = () => {
                 />
               </div>
             </div>
-            
+            {/* <div>
+              <label
+                className="block mb-2 text-sm font-medium text-gray-900"
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <input
+                placeholder="Password"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                type="password"
+                name="password"
+                value={password}
+                id="password"
+                required
+                autoComplete="off"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div> */}
             <div className="flex gap-2">
               <input
                 type="checkbox"
