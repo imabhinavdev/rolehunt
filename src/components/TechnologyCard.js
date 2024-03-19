@@ -1,9 +1,9 @@
 import React from "react";
 
-const TechnologyCard = () => {
+const TechnologyCard = (props) => {
   return (
-    <div className="w-48 text-center font-pt font-medium bg-white p-3 shadow-md rounded">
-      <p>Python</p>
+    <div className="w-full  font-pt font-medium p-3 bg-white shadow-md rounded">
+      <p>{props.technology}</p>
     </div>
   );
 };

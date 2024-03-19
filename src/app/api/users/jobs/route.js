@@ -8,22 +8,14 @@ export async function GET(req) {
     if (id) {
       const { data: jobData, error: jobError } = await supabase
         .from("jobs")
-        .select(`*`)
+        .select(`*,company(*)`)
         .eq("id", id);
-
-      const { data: companyData, error: companyError } = await supabase
-        .from("company")
-        .select();
 
       if (jobError) {
         return NextResponse.error(jobError.message);
       }
 
-      if (companyError) {
-        return NextResponse.error(companyError.message);
-      }
-
-      return NextResponse.json({ jobData, companyData });
+      return NextResponse.json({ jobData});
     } else {
       const { data, error } = await supabase
         .from("jobs")
