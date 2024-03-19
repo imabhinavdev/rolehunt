@@ -3,26 +3,40 @@ import { Github, Leetcode, Linkedin } from "@/components/Icons";
 import { useState, useEffect } from "react";
 import React from "react";
 import Link from "next/link";
-const Profile = () => {
+import Image from "next/image";
+const Profile = ({ params }) => {
   const [name, setName] = useState([]);
+  const [email, setEmail] = useState("");
+  const [enrollment, setEnrollment] = useState("");
+  const [batch, setBatch] = useState("");
+  const [mobNo, setMobNo] = useState("");
+  const id = params.id;
+
   useEffect(() => {
     const fetchName = async () => {
       const fetchedData = await fetch("/api/users/profile");
       const data = await fetchedData.json();
+      console.log(data);
+      console.log(data.email);
       if (data) {
-        console.log(data);
-        setName(data);
+        let { profile } = data;
+        profile = profile[0];
+        setEmail(email);
+        setEnrollment(profile.enrollment);
+        setBatch(profile.batch);
       }
     };
     fetchName();
-  }, []);
+  }, [id]);
 
   return (
     <div className="w-full  ">
       <div className="flex  w-full flex-col shadow-md items-center rounded-md border md:flex-row">
         <div className="h-full w-full md:h-60 md:w-80">
-          <img
-            src="https://img.freepik.com/free-photo/portrait-young-woman-with-magnificent-smile-standing-with-arms-folded-isolated-white_171337-1184.jpg?w=1380&t=st=1708233179~exp=1708233779~hmac=e3acdcd12c791ed532a9dc431c16b893301f8c63136870ae47d593b8acc85a7f"
+          <Image
+            width={500}
+            height={500}
+            src="/images/profileImg.jpeg"
             alt="Laptop"
             className="h-full w-full rounded-md object-cover"
           />
@@ -62,7 +76,7 @@ const Profile = () => {
                   <p>Batch</p>
                 </div>
                 <div className="flex-col gap-5 flex text-gray-500">
-                  <p>abc@gmail.com</p>
+                  <p>{email}</p>
                   <p>0187CS211033</p>
                   <p>7896541230</p>
                   <p>2025</p>
