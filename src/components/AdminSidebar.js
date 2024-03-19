@@ -57,7 +57,7 @@ const AdminSidebar = ({ children }) => {
                 <span className="sr-only">Open sidebar</span>
               </button>
               <Link href="/" className="flex ms-2 md:me-24">
-                <Image
+                <img
                   src="https://flowbite.com/docs/images/logo.svg"
                   className="h-8 me-3"
                   alt="FlowBite Logo"
@@ -79,7 +79,7 @@ const AdminSidebar = ({ children }) => {
                     aria-expanded="false"
                     data-dropdown-toggle="dropdown-user"
                   >
-                    <Image
+                    <img
                       className="w-8 h-8 rounded-full"
                       src="/images/user.png"
                       alt="user photo"
