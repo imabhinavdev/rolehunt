@@ -71,7 +71,7 @@ const AdminJobs = () => {
                       {item.is_active ? "Active" : "Inactive"}
                     </span>
                     <Link
-                      href="#"
+                      href={`/admin/jobs/view/${item.id}`}
                       className="text-indigo-600 hover:text-indigo-500 text-sm font-medium"
                     >
                       View Details
