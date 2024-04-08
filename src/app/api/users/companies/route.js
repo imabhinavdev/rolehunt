@@ -6,13 +6,13 @@ export async function GET(req) {
   if (!id) {
     const { data, error } = await supabase.from("company").select();
     if (error) {
-      return NextResponse.error(error.message);
+      return NextResponse.json(error.message);
     }
     return NextResponse.json(data);
   }
   const { data, error } = await supabase.from("company").select().eq("id", id);
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }

@@ -16,11 +16,11 @@ export async function GET(req) {
         .select();
 
       if (jobError) {
-        return NextResponse.error(jobError.message);
+        return NextResponse.json(jobError.message);
       }
 
       if (companyError) {
-        return NextResponse.error(companyError.message);
+        return NextResponse.json(companyError.message);
       }
 
       return NextResponse.json({ jobData, companyData });
@@ -30,13 +30,13 @@ export async function GET(req) {
         .select(`*,company(name)`);
 
       if (error) {
-        return NextResponse.error(error.message);
+        return NextResponse.json(error.message);
       }
 
       return NextResponse.json(data);
     }
   } catch (error) {
-    return NextResponse.error("An unexpected error occurred");
+    return NextResponse.json("An unexpected error occurred");
   }
 }
 
@@ -77,7 +77,7 @@ export async function POST(req) {
   ]);
   if (error) {
     console.log(error);
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json({ success: true });
 }
@@ -119,7 +119,7 @@ export async function PUT(req) {
     .eq("id", id);
   if (error) {
     console.log(error);
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json({ success: true });
 }
@@ -129,7 +129,7 @@ export async function DELETE(req) {
   const { id } = await req.json();
   const { data, error } = await supabase.from("jobs").delete().eq("id", id);
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }

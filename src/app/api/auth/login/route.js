@@ -9,7 +9,7 @@ export async function POST(req) {
     const { email, password } = await req.json();
 
     if (!email || !password) {
-      return NextResponse.error({
+      return NextResponse.json({
         status: 400,
         statusText: "Email and password are required",
       });
@@ -22,12 +22,12 @@ export async function POST(req) {
 
     if (error) {
       console.log(error)
-      return NextResponse.error({ status: 500, statusText: error.message });
+      return NextResponse.json({ status: 500, statusText: error.message });
     }
 
     if (!data || data.length === 0) {
       // No user found with the given email
-      return NextResponse.error({
+      return NextResponse.json({
         status: 401,
         statusText: "Invalid email or password",
       });
@@ -37,7 +37,7 @@ export async function POST(req) {
 
     if (!passwordMatch) {
       // Incorrect password
-      return NextResponse.error({
+      return NextResponse.json({
         status: 401,
         statusText: "Invalid email or password",
       });
@@ -58,7 +58,7 @@ export async function POST(req) {
     return response;
   } catch (error) {
     console.error(error.message);
-    return NextResponse.error({ status: 500, statusText: error.message });
+    return NextResponse.json({ status: 500, statusText: error.message });
   }
 }
 

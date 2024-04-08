@@ -21,7 +21,7 @@ export async function GET(req) {
       .from("students")
       .select("*,users(name,mobile,is_active)");
     if (error) {
-      return NextResponse.error(error.message);
+      return NextResponse.json(error.message);
     }
     return NextResponse.json(data);
   }
@@ -82,7 +82,7 @@ export async function DELETE(req) {
     .delete()
     .eq("email", email);
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }
@@ -100,7 +100,7 @@ export async function PUT(req) {
     })
     .eq("email", email);
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   const { data1, error1 } = await supabase
     .from("students")
@@ -112,7 +112,7 @@ export async function PUT(req) {
     })
     .eq("email", email);
   if (error1 && data) {
-    return NextResponse.error(error1.message);
+    return NextResponse.json(error1.message);
   }
   return NextResponse.json(data);
 }

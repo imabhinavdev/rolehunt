@@ -6,13 +6,13 @@ export async function GET(req) {
   if (!id) {
     const { data, error } = await supabase.from("company").select();
     if (error) {
-      return NextResponse.error(error.message);
+      return NextResponse.json(error.message);
     }
     return NextResponse.json(data);
   }
   const { data, error } = await supabase.from("company").select().eq("id", id);
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }
@@ -45,7 +45,7 @@ export async function POST(req) {
     ])
     .select();
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }
@@ -79,7 +79,7 @@ export async function PUT(req) {
     .eq("id", id)
     .select();
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }
@@ -93,7 +93,7 @@ export async function DELETE(req) {
     .eq("id", id)
     .select();
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }

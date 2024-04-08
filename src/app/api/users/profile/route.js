@@ -4,7 +4,7 @@ import { supabase } from "@/db/supabase";
 export async function GET() {
   const { data, error } = await supabase.from("students").select("*");
   if (error) {
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.json(data);
 }
@@ -42,7 +42,7 @@ export async function POST(req) {
     .select();
   if (error) {
     console.log(error);
-    return NextResponse.error(error.message);
+    return NextResponse.json(error.message);
   }
   return NextResponse.message;
 }
