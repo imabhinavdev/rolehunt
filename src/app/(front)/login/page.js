@@ -102,9 +102,7 @@ const Login = () => {
               Log in
             </button>
             <div className="text-center">
-              <Link href="#" className="hover:text-indigo-600">
-                Forgot password?
-              </Link>
+
             </div>
           </form>
         </div>

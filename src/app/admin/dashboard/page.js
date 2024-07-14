@@ -38,7 +38,7 @@ const CardData = [
     title: "Manage Students",
     description:
       "You can manage the students who are currently studying in the college.",
-    link: "/amdin/students",
+    link: "/admin/students",
     buttonText: "Manage",
   },
   {
@@ -47,12 +47,7 @@ const CardData = [
     link: "/admin/jobs",
     buttonText: "Manage",
   },
-  {
-    title: "Manage Placements",
-    description: "You can manage the placements of the students.",
-    link: "/admin/placements",
-    buttonText: "Manage",
-  },
+
   {
     title: "Add Companies",
     description: "You can add the companies that are coming to the campus.",

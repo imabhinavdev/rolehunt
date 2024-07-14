@@ -44,13 +44,13 @@ const AdminSidebar = ({ children }) => {
   return (
     <>
       <ToastContainer />
-      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 font-pop">
+      <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200  font-pop">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
               <button
                 type="button"
-                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
                 onClick={toggleSidebar}
               >
                 <Menu className="w-6 h-6" />
@@ -63,7 +63,7 @@ const AdminSidebar = ({ children }) => {
                   alt="FlowBite Logo"
                 />
                 <motion.span
-                  className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white"
+                  className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap "
                   whileTap={{ scale: 0.98 }}
                 >
                   RoleHunt Admin
@@ -95,10 +95,10 @@ const AdminSidebar = ({ children }) => {
         id="logo-sidebar"
         className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${
           isSidebarOpen ? "" : "-translate-x-full"
-        } bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`}
+        } bg-white border-r border-gray-200 sm:translate-x-0 `}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+        <div className="h-full px-3 pb-4 overflow-y-auto bg-white ">
           <ul className="space-y-2 font-medium">
             {SideBarData.map((sidebar, index) => (
               <SideBarList
@@ -112,7 +112,7 @@ const AdminSidebar = ({ children }) => {
               <Link
                 onClick={handleLogout}
                 href=""
-                className=" flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group "
+                className=" flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group "
               >
                 <Logout className="w-5" />
                 <span className="ms-3">Logout</span>
