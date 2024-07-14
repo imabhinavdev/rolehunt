@@ -101,8 +101,18 @@ const Login = () => {
             >
               Log in
             </button>
-            <div className="text-center">
-
+            <div className="flex flex-col">
+              <div className="flex-1">
+                Admin Dummy account <br />
+                email: <strong>admin@gmail.com</strong> <br />
+                password: <strong>Admin</strong>
+              </div>
+              <hr className="my-2" />
+              <div className="flex-1">
+                User Dummy account <br />
+                email: <strong>user@gmail.com</strong> <br />
+                password: <strong>User</strong>
+              </div>
             </div>
           </form>
         </div>
